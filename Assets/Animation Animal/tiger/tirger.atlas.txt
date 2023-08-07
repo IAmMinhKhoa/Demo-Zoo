@@ -1,0 +1,41 @@
+
+tirger.png
+size: 1171,601
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 2
+  size: 704, 597
+  orig: 981, 832
+  offset: 144, 103
+  index: -1
+Ear left
+  rotate: true
+  xy: 1039, 466
+  size: 133, 130
+  orig: 133, 130
+  offset: 0, 0
+  index: -1
+Ear right
+  rotate: false
+  xy: 1039, 333
+  size: 129, 131
+  orig: 186, 140
+  offset: 57, 9
+  index: -1
+Head
+  rotate: true
+  xy: 708, 219
+  size: 380, 329
+  orig: 381, 332
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 708, 30
+  size: 372, 187
+  orig: 372, 187
+  offset: 0, 0
+  index: -1

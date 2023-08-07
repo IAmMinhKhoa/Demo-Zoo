@@ -1,0 +1,55 @@
+
+Wolf.png
+size: 1093,656
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 25
+  size: 629, 629
+  orig: 656, 629
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 633, 2
+  size: 386, 264
+  orig: 387, 264
+  offset: 1, 0
+  index: -1
+Left Ear
+  rotate: false
+  xy: 943, 457
+  size: 134, 197
+  orig: 135, 197
+  offset: 0, 0
+  index: -1
+Left Eye
+  rotate: true
+  xy: 2, 4
+  size: 19, 44
+  orig: 19, 45
+  offset: 0, 0
+  index: -1
+Right Ear
+  rotate: false
+  xy: 943, 300
+  size: 148, 155
+  orig: 148, 156
+  offset: 0, 1
+  index: -1
+Right Eye
+  rotate: false
+  xy: 1021, 251
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 633, 268
+  size: 308, 386
+  orig: 310, 386
+  offset: 0, 0
+  index: -1

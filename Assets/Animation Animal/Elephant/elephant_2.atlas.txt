@@ -1,0 +1,55 @@
+
+elephant_2.png
+size: 1549,667
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 2
+  size: 663, 838
+  orig: 732, 902
+  offset: 69, 44
+  index: -1
+duoi
+  rotate: true
+  xy: 1256, 210
+  size: 38, 267
+  orig: 38, 268
+  offset: 0, 1
+  index: -1
+ear left
+  rotate: false
+  xy: 1256, 250
+  size: 291, 415
+  orig: 291, 415
+  offset: 0, 0
+  index: -1
+ear right
+  rotate: true
+  xy: 842, 33
+  size: 177, 334
+  orig: 178, 335
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 842, 212
+  size: 412, 453
+  orig: 412, 476
+  offset: 0, 23
+  index: -1
+nga pha
+  rotate: false
+  xy: 1178, 118
+  size: 187, 90
+  orig: 188, 90
+  offset: 1, 0
+  index: -1
+nga trai
+  rotate: false
+  xy: 1367, 113
+  size: 158, 95
+  orig: 162, 95
+  offset: 0, 0
+  index: -1
