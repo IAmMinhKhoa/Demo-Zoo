@@ -4,7 +4,10 @@ using System.Collections;
 
 public class Player1Controller : MonoBehaviour
 {
+	//public ParticleSystem Dust;
+	
     public float speed = 5f;
+
     public Animator anim;
 	private Rigidbody2D rb;
     public bool facingRight;
@@ -12,6 +15,7 @@ public class Player1Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 	// Controls facing direction
 	
@@ -65,40 +69,37 @@ public class Player1Controller : MonoBehaviour
 	{
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+		
+
 		if (moveHorizontal > 0)
 		{
 			facingRight = false;
 			sprite.flipX = facingRight;
-			Walk();
-		}
+            Run();
+		
+        }
 		else if(moveHorizontal <0)
 		{
 			facingRight = true;
             sprite.flipX = facingRight;
-            Walk();
-
-        }
-        else
-        {
-            WalkOff();
-
-        }
-        if (moveVertical != 0)
-        {
             Run();
+          
         }
         else
         {
-            RunOff();
-
+			RunOff();
         }
+		if (moveVertical != 0)
+		{
+            Run();
+         
+		}
 		
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
-		Debug.Log(moveHorizontal);
+		
     } 
-
-
+	
 }
 
 
