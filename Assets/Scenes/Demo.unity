@@ -466,6 +466,7 @@ MonoBehaviour:
   speed: 1
   anim: {fileID: 3957064112297621649}
   facingRight: 0
+  sprite: {fileID: 3957064112297621648}
 --- !u!50 &967755555
 Rigidbody2D:
   serializedVersion: 4
@@ -1412,6 +1413,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.356539, y: -3.8752494}
-  m_Size: {x: 2.1417432, y: 2.3467453}
+  m_Offset: {x: -0.4794409, y: -3.8430152}
+  m_Size: {x: 2.3351533, y: 3.5600882}
   m_Direction: 0

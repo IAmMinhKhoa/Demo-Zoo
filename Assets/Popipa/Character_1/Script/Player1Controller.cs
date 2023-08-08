@@ -8,6 +8,7 @@ public class Player1Controller : MonoBehaviour
     public Animator anim;
 	private Rigidbody2D rb;
     public bool facingRight;
+	public SpriteRenderer sprite;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -64,13 +65,22 @@ public class Player1Controller : MonoBehaviour
 	{
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-		if (moveHorizontal != 0)
+		if (moveHorizontal > 0)
 		{
+			facingRight = false;
+			sprite.flipX = facingRight;
 			Walk();
 		}
-		else
+		else if(moveHorizontal <0)
 		{
-			WalkOff();
+			facingRight = true;
+            sprite.flipX = facingRight;
+            Walk();
+
+        }
+        else
+        {
+            WalkOff();
 
         }
         if (moveVertical != 0)
@@ -82,6 +92,7 @@ public class Player1Controller : MonoBehaviour
             RunOff();
 
         }
+		
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
 		Debug.Log(moveHorizontal);
