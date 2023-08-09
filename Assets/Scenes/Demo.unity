@@ -5409,9 +5409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30022de401d06c642a9ab72cdadd54f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  gameInput: {fileID: 0}
+  speed: 5
   anim: {fileID: 3957064112297621649}
-  facingRight: 0
+  facingRight: 1
   sprite: {fileID: 3957064112297621648}
 --- !u!50 &967755555
 Rigidbody2D:

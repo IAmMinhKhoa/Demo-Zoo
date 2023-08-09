@@ -5,6 +5,8 @@ using System.Collections;
 public class Player1Controller : MonoBehaviour
 {
 	//public ParticleSystem Dust;
+
+	[SerializeField] private GameInput gameInput;
 	
     public float speed = 5f;
 
@@ -12,6 +14,8 @@ public class Player1Controller : MonoBehaviour
 	private Rigidbody2D rb;
     public bool facingRight;
 	public SpriteRenderer sprite;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,19 +71,16 @@ public class Player1Controller : MonoBehaviour
 
 	void Update()
 	{
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Vector2 movement = gameInput.GetMovementVector();
 		
-
-		if (moveHorizontal > 0)
+		if (movement.x > 0)
 		{
 			facingRight = false;
 			sprite.flipX = facingRight;
             Run();
 		
         }
-		else if(moveHorizontal <0)
+		else if(movement.x < 0)
 		{
 			facingRight = true;
             sprite.flipX = facingRight;
@@ -90,7 +91,7 @@ public class Player1Controller : MonoBehaviour
         {
 			RunOff();
         }
-		if (moveVertical != 0)
+		if (movement.y != 0)
 		{
             Run();
          
