@@ -5581,6 +5581,8 @@ MonoBehaviour:
   anim: {fileID: 3957064112297621649}
   facingRight: 1
   sprite: {fileID: 3957064112297621648}
+  footprintsPrefab: {fileID: 2326945317294358217, guid: 912b3d31bd23ccf4886e80829f16313f, type: 3}
+  footprintInterval: 0.15
 --- !u!50 &967755555
 Rigidbody2D:
   serializedVersion: 4
