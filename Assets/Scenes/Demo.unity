@@ -6127,6 +6127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456104825}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
@@ -6137,6 +6138,10 @@ Transform:
   m_LocalPosition: {x: 10.24, y: 2.95, z: -2.0678985}
   m_LocalScale: {x: 0.22494364, y: 0.248488, z: 0.29247645}
 >>>>>>> a02db5f0ab39b919eb9bc9904c523a641cf8f26c
+=======
+  m_LocalPosition: {x: 10.24, y: 2.95, z: -2.0678985}
+  m_LocalScale: {x: 0.22494364, y: 0.248488, z: 0.29247645}
+>>>>>>> origin/MinhNghia
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1872069370}
