@@ -1,0 +1,55 @@
+
+Giraffe.png
+size: 765,499
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: true
+  xy: 2, 141
+  size: 356, 485
+  orig: 356, 485
+  offset: 0, 0
+  index: -1
+Ear
+  rotate: true
+  xy: 463, 31
+  size: 66, 73
+  orig: 66, 73
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 2
+  size: 162, 137
+  orig: 162, 137
+  offset: 0, 0
+  index: -1
+Horn1
+  rotate: true
+  xy: 538, 59
+  size: 38, 59
+  orig: 38, 59
+  offset: 0, 0
+  index: -1
+Horn2
+  rotate: true
+  xy: 599, 71
+  size: 26, 51
+  orig: 27, 51
+  offset: 1, 0
+  index: -1
+Neck
+  rotate: false
+  xy: 489, 99
+  size: 274, 398
+  orig: 274, 398
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: true
+  xy: 166, 12
+  size: 127, 295
+  orig: 127, 295
+  offset: 0, 0
+  index: -1
