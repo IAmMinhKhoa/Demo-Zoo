@@ -12,7 +12,7 @@ public class Player1Controller : MonoBehaviour
 
     public Animator anim;
 	private Rigidbody2D rb;
-    public bool facingRight;
+    private bool facingRight;
 	public SpriteRenderer sprite;
 
     private Transform footprintsContainer;

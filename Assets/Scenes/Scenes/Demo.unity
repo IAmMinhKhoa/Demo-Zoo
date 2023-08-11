@@ -268,12 +268,129 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1456104829}
-  - {fileID: 906944960}
   - {fileID: 442029751}
   - {fileID: 557126908}
+  - {fileID: 136638892}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &136638891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136638892}
+  - component: {fileID: 136638894}
+  - component: {fileID: 136638893}
+  m_Layer: 0
+  m_Name: Animal Tirger
+  m_TagString: Animal_Elephant
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &136638892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136638891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 906944960}
+  m_Father: {fileID: 44016457}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136638893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136638891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2b4358eafce8b44a53e3bbe3ca7b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SO_Animal: {fileID: 11400000, guid: c1e2ee8b26117e64d91fc0bafe2e286f, type: 2}
+  GO_Animal: {fileID: 906944956}
+--- !u!68 &136638894
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136638891}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 4.75}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -5.504453, y: -3.7296574}
+  - {x: -5.5627117, y: -3.5006979}
+  - {x: -5.6171875, y: -3.1042905}
+  - {x: -5.7561436, y: -2.4099824}
+  - {x: -5.614643, y: -1.9262731}
+  - {x: -5.3840246, y: -1.6982636}
+  - {x: -4.7768784, y: -0.73769045}
+  - {x: -3.692214, y: -0.46096182}
+  - {x: -2.733004, y: -0.6402416}
+  - {x: -2.261096, y: -1.0146189}
+  - {x: -1.979434, y: -1.3322706}
+  - {x: -1.471806, y: -1.7760072}
+  - {x: -0.74637556, y: -2.1097999}
+  - {x: 0.123556614, y: -2.3215475}
+  - {x: 0.3733654, y: -2.543387}
+  - {x: 0.17940116, y: -2.9583912}
+  - {x: -0.04169488, y: -3.582245}
+  - {x: -0.046123743, y: -4.334076}
+  - {x: -0.16963387, y: -4.5767155}
+  - {x: -0.99333453, y: -4.839732}
+  - {x: -1.8282776, y: -5.19329}
+  - {x: -2.7396717, y: -5.4267926}
+  - {x: -4.422234, y: -5.374672}
+  - {x: -4.968996, y: -5.365194}
+  - {x: -5.379085, y: -5.1799736}
+  - {x: -5.5903378, y: -4.975053}
+  - {x: -5.68552, y: -4.727099}
+  - {x: -5.6759024, y: -4.325319}
+  - {x: -5.519614, y: -4.035414}
+  - {x: -5.473882, y: -3.728724}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &176771856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,9 +5478,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557126908}
+  - component: {fileID: 557126909}
+  - component: {fileID: 557126910}
   m_Layer: 0
   m_Name: Animal Elephant
-  m_TagString: Untagged
+  m_TagString: Animal_Elephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5384,6 +5503,76 @@ Transform:
   m_Father: {fileID: 44016457}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &557126909
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557126907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -5.504453, y: -3.7296574}
+  - {x: -5.666418, y: -3.5525508}
+  - {x: -5.7831173, y: -3.145773}
+  - {x: -5.7561436, y: -2.4099824}
+  - {x: -5.614643, y: -1.9262731}
+  - {x: -5.3840246, y: -1.6982636}
+  - {x: -4.714031, y: -1.5546949}
+  - {x: -3.6063972, y: -1.5479786}
+  - {x: -2.2654915, y: -1.3894821}
+  - {x: -0.9942918, y: -1.0704592}
+  - {x: 0.028204441, y: -0.7863746}
+  - {x: 0.4496472, y: -0.9510032}
+  - {x: 1.190136, y: -1.4899648}
+  - {x: 1.9595914, y: -1.9107165}
+  - {x: 2.638989, y: -2.3934944}
+  - {x: 2.7778535, y: -3.09319}
+  - {x: 2.6547093, y: -3.7409651}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &557126910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557126907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2b4358eafce8b44a53e3bbe3ca7b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SO_Animal: {fileID: 11400000, guid: 732c2aa560a18134999fdf6932fe874b, type: 2}
+  GO_Animal: {fileID: 621437777}
 --- !u!1 &621437777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,7 +6032,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2064660839}
-  m_Father: {fileID: 44016457}
+  m_Father: {fileID: 136638892}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &967755554
@@ -5861,7 +6050,6 @@ MonoBehaviour:
   gameInput: {fileID: 239355507}
   speed: 5
   anim: {fileID: 3957064112297621649}
-  facingRight: 1
   sprite: {fileID: 3957064112297621648}
   footprintsPrefab: {fileID: 2326945317294358217, guid: 912b3d31bd23ccf4886e80829f16313f, type: 3}
   footprintInterval: 0.15
@@ -7304,6 +7492,7 @@ GameObject:
   - component: {fileID: 967755555}
   - component: {fileID: 967755554}
   - component: {fileID: 3957064113126791599}
+  - component: {fileID: 3957064113126791600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7364,3 +7553,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.4794409, y: -3.8430152}
   m_Size: {x: 2.3351533, y: 3.5600882}
   m_Direction: 0
+--- !u!114 &3957064113126791600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957064113126791584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43a9a8598dac28418ee88b4442b629f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleUp: 1.07
