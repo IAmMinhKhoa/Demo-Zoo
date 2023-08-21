@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class test : MonoBehaviour
+public class MinimumThreshold : MonoBehaviour
 {
     public float aplphaThreshold = 0.1f;
     private void Start()
