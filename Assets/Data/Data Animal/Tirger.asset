@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3fcb7094a09534794fbd59619642a9, type: 3}
   m_Name: Tirger
   m_EditorClassIdentifier: 
-  Name: Con Hoor
+  NameVn: "Con H\u1ED5"
+  NameUS: Tiger
   Sprite: {fileID: 21300000, guid: 2678284f3b2ec044f92cdb64c9d58965, type: 3}
+  Icon: {fileID: 21300000, guid: d69118cf9e818d94d86baafff2d0a52d, type: 3}
   Content: "\u0110\xE2y l\xE0 con h\u1ED5 r\u1EA5t \u1EA3o"
   myAudioClip: {fileID: 8300000, guid: e57e59f3f2803794f8ddb52e245640ef, type: 3}
