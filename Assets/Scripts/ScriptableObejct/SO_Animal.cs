@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SO_Animal : ScriptableObject
 {
+    public bool clock;
     public string NameVn;
     public string NameUS;
     public Sprite Sprite;

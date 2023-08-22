@@ -7,23 +7,22 @@ using static SO_ListAnimal;
 
 public class LoadListAnimalToUI : MonoBehaviour
 {
-
-
- 
-
-
-
-    public enum NameZone { Forest }
+    public GameObject prefabCardAnimal;
+    public enum NameZone { 
+        Forest,
+        Winter,
+        cc
+    }
     [SerializeField] NameZone nameZone;
     protected List<string> ListNameZone = new List<string>();
-    public GameObject prefabCardAnimal;
+  
     public SO_ListAnimal listAnimal;
  
 
     private void Start()
     {
-        LoadData("Forest");
-        //LoadDataListNameZone();
+        string zone=nameZone.ToString();
+        LoadData(zone);
 
     }
     protected void LoadDataListNameZone()
@@ -48,27 +47,21 @@ public class LoadListAnimalToUI : MonoBehaviour
         {
             if(ListZone.NameZone == name)
             {
-                checkFindZone = true;
+               
                 foreach  (SO_Animal ListDataAnimal in ListZone.DATA_Animals)
                 {
-                    InstanceCardAnimal(GO_ListAnimal,ListDataAnimal);
+                    checkFindZone = true;
+                    prefabCardAnimal.GetComponent<ComponentCardAnimalInBook>().InstanceCardAnimal(GO_ListAnimal, ListDataAnimal);
                 }
             }
         }
         if (checkFindZone != true)
         {
-            Debug.LogWarning("Not Finding this " + name);
+            Debug.LogWarning("Not Finding this " + name+" Zone");
         }
     }
 
-    protected void InstanceCardAnimal(GameObject GO_ListAnimal,SO_Animal ListDataAnimal)
-    {
-        GameObject CardAnimal = Instantiate(prefabCardAnimal);
-        CardAnimal.transform.SetParent(GO_ListAnimal.transform);
-        CardAnimal.transform.localScale = new Vector3(1, 1, 1);
-        CardAnimal.GetComponent<ComponentCardAnimalInBook>().ChangeIcon(ListDataAnimal.Icon);
-        CardAnimal.GetComponent<ComponentCardAnimalInBook>().ChangeName(ListDataAnimal.NameVn, ListDataAnimal.NameUS);
-    }
+ 
 
     protected GameObject FindChildObject(GameObject parent,string name)
     {
