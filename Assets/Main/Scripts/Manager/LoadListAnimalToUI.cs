@@ -14,16 +14,24 @@ public class LoadListAnimalToUI : MonoBehaviour
         cc
     }
     [SerializeField] NameZone nameZone;
+    
     protected List<string> ListNameZone = new List<string>();
   
     public SO_ListAnimal listAnimal;
- 
 
+    private void Awake()
+    {
+        foreach (AnimalZone animal in listAnimal.List_Animal_Zone)
+        {
+            ListNameZone.Add(animal.NameZone);
+        }
+
+    }
     private void Start()
     {
         string zone=nameZone.ToString();
         LoadData(zone);
-
+       
     }
     protected void LoadDataListNameZone()
     {
