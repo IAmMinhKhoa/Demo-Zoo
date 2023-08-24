@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3fcb7094a09534794fbd59619642a9, type: 3}
   m_Name: Elephant
   m_EditorClassIdentifier: 
+  clock: 0
   NameVn: Con Voi
   NameUS: Elephant
   Sprite: {fileID: 21300000, guid: 72ce34a6779b37540a0306a57f6882be, type: 3}
   Icon: {fileID: 21300000, guid: 2752ea8cbceafa84eaa581123399106a, type: 3}
   Content: "\u0110\xE2y l\xE0 con voi r\u1EA5t to"
-  myAudioClip: {fileID: 8300000, guid: e57e59f3f2803794f8ddb52e245640ef, type: 3}
+  animalSound: {fileID: 8300000, guid: 51f0c54706b53c14c9c24bbd63bb18a6, type: 3}

@@ -42,9 +42,6 @@ public class LoadListAnimalToUI : MonoBehaviour
         }
     }
 
- 
-
-
 
     protected void LoadData(String name)
     {
@@ -55,11 +52,12 @@ public class LoadListAnimalToUI : MonoBehaviour
         {
             if(ListZone.NameZone == name)
             {
-               
                 foreach  (SO_Animal ListDataAnimal in ListZone.DATA_Animals)
                 {
                     checkFindZone = true;
-                    prefabCardAnimal.GetComponent<ComponentCardAnimalInBook>().InstanceCardAnimal(GO_ListAnimal, ListDataAnimal);
+                    ComponentCardAnimalInBook componentCardAnimalInBook = prefabCardAnimal.GetComponent<ComponentCardAnimalInBook>();
+                    componentCardAnimalInBook.LoadDataToCard(ListDataAnimal);
+                    componentCardAnimalInBook.InstanceCardAnimal(GO_ListAnimal);
                 }
             }
         }

@@ -22,4 +22,5 @@ public class GameInput : MonoBehaviour
         
         return movement;
     }
+
 }

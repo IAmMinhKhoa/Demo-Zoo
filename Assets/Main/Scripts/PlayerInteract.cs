@@ -12,8 +12,8 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Animal"))
         {
-            Animator animator_Animal= collision.GetComponent<Animator>();
-            animator_Animal.SetBool("Interact",true);
+           InteractAnimal interactAnimal = collision.GetComponent<InteractAnimal>();
+           interactAnimal.PopIn_Indirect();
       
 
         }
@@ -22,8 +22,9 @@ public class PlayerInteract : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Animal"))
         {
-            Animator animator_Animal = collision.GetComponent<Animator>();
-            animator_Animal.SetBool("Interact",false);
+            InteractAnimal interactAnimal = collision.GetComponent<InteractAnimal>();
+            interactAnimal.PopOut();
+
 
         }
     }
