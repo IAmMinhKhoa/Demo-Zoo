@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -60,7 +61,6 @@ public class PlayerInteract : MonoBehaviour
         {
             StopAllCoroutines();  // Stop any ongoing scaling coroutines
             StartCoroutine(ScaleDownObject(collision.GetComponent<Animal>().GO_Animal, initialScale, 0.05f));
-            
         }
     }
 
