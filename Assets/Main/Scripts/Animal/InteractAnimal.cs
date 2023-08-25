@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InteractAnimal : MonoBehaviour
 {
     protected Animator animator_Animal;
-    public GameObject img_infor;
-    public GameObject btn_infor;
+ 
+    [SerializeField] protected GameObject tableInforAnimal;
+    [SerializeField] protected Button btn_Exits;
     private void Start()
     {
-        animator_Animal = GetComponent<Animator>();   
+        animator_Animal = GetComponent<Animator>();
+        btn_Exits.onClick.AddListener(() => ActiveTableInfor(false));
     }
 
     //Indirect giantiep
@@ -17,18 +21,24 @@ public class InteractAnimal : MonoBehaviour
     public void PopIn_Direct()
     {
         animator_Animal.SetBool("Interact", true);
-        img_infor.SetActive(true);
+        ActiveTableInfor(true);
     }
     public void PopIn_Indirect()
     {
         animator_Animal.SetBool("Interact", true);
-        btn_infor.SetActive(true);
+      
     }
     public void PopOut()
     {
         animator_Animal.SetBool("Interact", false);
-        btn_infor.SetActive(false);
-        img_infor.SetActive(false);
+        ActiveTableInfor(false);
     }
+
+
+    public void  ActiveTableInfor(bool active)
+    {
+        tableInforAnimal.SetActive(active);
+    }
+  
 
 }
