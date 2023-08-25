@@ -15,7 +15,7 @@ public class AddCard : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             GameObject cardButton = Instantiate(Button);
-            cardButton.name = "Card " + i;
+            cardButton.name ="" + i;
             cardButton.transform.SetParent(puzzleField, false);
         }    
     }
