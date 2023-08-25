@@ -17,20 +17,20 @@ public class InteractAnimal : MonoBehaviour
     }
 
     //Indirect giantiep
-    //direct tructiep
-    public void PopIn_Direct()
+    //Direct tructiep
+    public void PopIn_Direct()//use when finger touch direct into a aniaml cages
     {
-        animator_Animal.SetBool("Interact", true);
+        ActiveAnimator(animator_Animal, "Interact", true);
         ActiveTableInfor(true);
     }
-    public void PopIn_Indirect()
+    public void PopIn_Indirect()//use when player go into trigger cage.
     {
-        animator_Animal.SetBool("Interact", true);
-      
+        ActiveAnimator(animator_Animal, "Interact", true);
+
     }
-    public void PopOut()
+    public void PopOut() //use when not touch a animal cages 
     {
-        animator_Animal.SetBool("Interact", false);
+        ActiveAnimator(animator_Animal, "Interact", false);
         ActiveTableInfor(false);
     }
 
@@ -39,6 +39,10 @@ public class InteractAnimal : MonoBehaviour
     {
         tableInforAnimal.SetActive(active);
     }
-  
+    
+    public void ActiveAnimator(Animator animate,string nameAnimate, bool status)
+    {
+        animate.SetBool(nameAnimate, status);
+    }
 
 }
