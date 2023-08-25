@@ -11,22 +11,23 @@ public class ComponentCardAnimalInBook : MonoBehaviour
     public TextMeshProUGUI TextNameVN;
     public TextMeshProUGUI TextNameUS;
 
-    public void ChangeIcon(Sprite image)
-    {
-        Icon.sprite = image;
-    }
-    public void ChangeName(string nameVN, string nameUS)
-    {
-        TextNameVN.text = nameVN;
-        TextNameUS.text = nameUS;
-    }
+    public AudioSource AudioSoundVN;
+    public AudioSource AudioSoundUS;
 
-    public void InstanceCardAnimal(GameObject GO_ListAnimal, SO_Animal ListDataAnimal)
+   
+    public void LoadDataToCard(SO_Animal ListDataAnimal)
+    {
+        Icon.sprite = ListDataAnimal.Icon;
+        TextNameVN.text = ListDataAnimal.NameVn;
+        TextNameUS.text = ListDataAnimal.NameUS;
+        AudioSoundVN.clip = ListDataAnimal.animalSound;
+        AudioSoundUS.clip = ListDataAnimal.animalSound;
+    }
+    public void InstanceCardAnimal(GameObject GO_ListAnimal)
     {
         GameObject CardAnimal = Instantiate(this.gameObject);
         CardAnimal.transform.SetParent(GO_ListAnimal.transform);
         CardAnimal.transform.localScale = new Vector3(1, 1, 1);
-        ChangeIcon(ListDataAnimal.Icon);
-        ChangeName(ListDataAnimal.NameVn, ListDataAnimal.NameUS);
+   
     }
 }
