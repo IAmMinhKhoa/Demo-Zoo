@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Flip_GameController : MonoBehaviour
 {
+    [SerializeField]
+    private Sprite frontSprite, backSprite;
+
+    private bool coroutineAllowed, facedUp;
+
     public List<Button> cardButtons;
 
     public Sprite[] icon;
@@ -22,6 +27,7 @@ public class Flip_GameController : MonoBehaviour
     private string firstGuessPuzzel, secondGuessPuzzel;
 
 
+
     private void Awake()
     {
         cardButtons = new List<Button>();
@@ -34,6 +40,10 @@ public class Flip_GameController : MonoBehaviour
         GetCardButtons();
         AddListeners();
         AddCardIcon();
+        gameGuesses = cardIcon.Count / 2;
+
+        coroutineAllowed = true;
+        facedUp = false;
     }
 
     void GetCardButtons()
@@ -111,13 +121,59 @@ public class Flip_GameController : MonoBehaviour
                 image.sprite = cardIcon[secondGuessIndex];
             }
 
-            if (firstGuessPuzzel == secondGuessPuzzel)
+            countGuesses++;
+
+            StartCoroutine(CheckIfTheCardMatch());
+
+        }
+    }
+
+    IEnumerator CheckIfTheCardMatch()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if(firstGuessPuzzel == secondGuessPuzzel)
+        {
+            yield return new WaitForSeconds(.5f);
+
+            cardButtons[firstGuessIndex].interactable = false;
+            cardButtons[secondGuessIndex].interactable = false;
+
+            cardButtons[firstGuessIndex].image.color = new Color(0, 0, 0, 0);
+            cardButtons[secondGuessIndex].image.color = new Color(0, 0, 0, 0);
+
+            Image firstImage = cardButtons[firstGuessIndex].transform.Find("Image").GetComponent<Image>();
+            Image secondImage = cardButtons[secondGuessIndex].transform.Find("Image").GetComponent<Image>();
+
+            // Kiểm tra xem các gameobject con có tồn tại hay không
+            if (firstImage != null && secondImage != null)
             {
-                Debug.Log("Match");
-            } else
-            {
-                Debug.Log("Don't Match");
+                // Thiết lập hiển thị cho Image
+                firstImage.gameObject.SetActive(false);
+                secondImage.gameObject.SetActive(false);
             }
+
+            CheckIfTheGameIsFinished();
+        }  
+        else
+        {
+
+
+
+        }
+        yield return new WaitForSeconds(.5f);
+
+        firstGuess = secondGuess = false;
+    }
+
+    private void CheckIfTheGameIsFinished()
+    {
+        countCorrectGuesses++;
+
+        if (countCorrectGuesses == gameGuesses)
+        {
+            Debug.Log("Game Finished");
+            Debug.Log("It took you " + countGuesses + " many guess(es) to finish the game");
         }
     }
 }
