@@ -591,7 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca952eb9cbe38041abd5d875d7a75bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backCard: {fileID: -1173382872, guid: 6b68bf958480b014098160c8510567c8, type: 3}
+  frontSprite: {fileID: -3779280, guid: 6b68bf958480b014098160c8510567c8, type: 3}
+  backSprite: {fileID: -1173382872, guid: 6b68bf958480b014098160c8510567c8, type: 3}
   cardButtons: []
   icon: []
   cardIcon: []

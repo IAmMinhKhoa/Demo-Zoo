@@ -8,7 +8,7 @@ public class Flip_GameController : MonoBehaviour
     [SerializeField]
     private Sprite frontSprite, backSprite;
 
-    private bool coroutineAllowed, facedUp;
+    //private bool coroutineAllowed, facedUp;
 
     public List<Button> cardButtons;
 
@@ -42,8 +42,8 @@ public class Flip_GameController : MonoBehaviour
         AddCardIcon();
         gameGuesses = cardIcon.Count / 2;
 
-        coroutineAllowed = true;
-        facedUp = false;
+        //coroutineAllowed = true;
+        //facedUp = false;
     }
 
     void GetCardButtons()
@@ -93,6 +93,8 @@ public class Flip_GameController : MonoBehaviour
 
             firstGuessPuzzel = cardIcon[firstGuessIndex].name;
 
+            FlipFrontCard(cardButtons[firstGuessIndex]);
+
             Image image = cardButtons[firstGuessIndex].transform.Find("Image").GetComponent<Image>();
 
             // Kiểm tra xem các gameobject con có tồn tại hay không
@@ -110,6 +112,8 @@ public class Flip_GameController : MonoBehaviour
             secondGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
 
             secondGuessPuzzel = cardIcon[secondGuessIndex].name;
+
+            FlipFrontCard(cardButtons[secondGuessIndex]);
 
             Image image = cardButtons[secondGuessIndex].transform.Find("Image").GetComponent<Image>();
 
@@ -130,7 +134,7 @@ public class Flip_GameController : MonoBehaviour
 
     IEnumerator CheckIfTheCardMatch()
     {
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
 
         if(firstGuessPuzzel == secondGuessPuzzel)
         {
@@ -157,11 +161,26 @@ public class Flip_GameController : MonoBehaviour
         }  
         else
         {
+            yield return new WaitForSeconds(1f);
 
+            FlipBackCard(cardButtons[firstGuessIndex]);
+            FlipBackCard(cardButtons[secondGuessIndex]);
 
+            cardButtons[firstGuessIndex].interactable = true;
+            cardButtons[secondGuessIndex].interactable = true;
 
+            Image firstImage = cardButtons[firstGuessIndex].transform.Find("Image").GetComponent<Image>();
+            Image secondImage = cardButtons[secondGuessIndex].transform.Find("Image").GetComponent<Image>();
+
+            // Kiểm tra xem các gameobject con có tồn tại hay không
+            if (firstImage != null && secondImage != null)
+            {
+                // Thiết lập hiển thị cho Image
+                firstImage.gameObject.SetActive(false);
+                secondImage.gameObject.SetActive(false);
+            }
         }
-        yield return new WaitForSeconds(.5f);
+        //yield return new WaitForSeconds(1f);
 
         firstGuess = secondGuess = false;
     }
@@ -174,6 +193,49 @@ public class Flip_GameController : MonoBehaviour
         {
             Debug.Log("Game Finished");
             Debug.Log("It took you " + countGuesses + " many guess(es) to finish the game");
+        }
+    }
+
+    private void FlipFrontCard(Button button)
+    {
+        StartCoroutine(RotateFront(button));
+    }
+
+    private void FlipBackCard(Button button)
+    {
+        StartCoroutine(RotateBack(button));
+    }
+
+    private IEnumerator RotateFront(Button button)
+    {
+        if (button.image.sprite == backSprite)
+        {
+            for (float i = 0f; i <= 180f; i += 10f)
+            {
+                button.transform.rotation = Quaternion.Euler(0f, i, 0f);
+                if (i == 90f)
+                {
+                    button.image.sprite = frontSprite;
+                }
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        yield return new WaitForSeconds(1f);
+    }
+
+    private IEnumerator RotateBack(Button button)
+    {
+        if (button.image.sprite == frontSprite)
+        {
+            for (float i = 180f; i >= 0f; i -= 10f)
+            {
+                button.transform.rotation = Quaternion.Euler(0f, i, 0f);
+                if (i == 90f)
+                {
+                    button.image.sprite = backSprite;
+                }
+                yield return new WaitForSeconds(0.01f);
+            }
         }
     }
 }

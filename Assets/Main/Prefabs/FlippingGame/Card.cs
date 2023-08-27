@@ -22,7 +22,7 @@ public class Card : MonoBehaviour
         coroutineAllowed = true;
         facedUp = false;
 
-        button.onClick.AddListener(FlipCard);
+        //button.onClick.AddListener(FlipCard);
     }
 
     private void FlipCard()
