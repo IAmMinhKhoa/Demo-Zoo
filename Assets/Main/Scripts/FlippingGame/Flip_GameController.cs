@@ -40,6 +40,7 @@ public class Flip_GameController : MonoBehaviour
         GetCardButtons();
         AddListeners();
         AddCardIcon();
+        Shuffle(cardIcon);
         gameGuesses = cardIcon.Count / 2;
 
         //coroutineAllowed = true;
@@ -83,6 +84,7 @@ public class Flip_GameController : MonoBehaviour
 
     public void PickAPuzzle()
     {
+        if (!FlipGameManager.Instance.IsGamePlaying()) return;
         string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
         if (!firstGuess)
@@ -236,6 +238,17 @@ public class Flip_GameController : MonoBehaviour
                 }
                 yield return new WaitForSeconds(0.01f);
             }
+        }
+    }
+
+    private void Shuffle(List<Sprite> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            Sprite sprite = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = sprite;
         }
     }
 }
