@@ -10,13 +10,31 @@ public class AddCard : MonoBehaviour
     [SerializeField]
     private GameObject Button;
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    for (int i = 0; i < 8; i++)
+    //    {
+    //        GameObject cardButton = Instantiate(Button);
+    //        cardButton.name ="" + i;
+    //        cardButton.transform.SetParent(puzzleField, false);
+    //    }    
+    //}
+
+    private void Start()
     {
-        for (int i = 0; i < 8; i++)
+        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+    }
+
+    private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
+    {
+        if (FlipGameManager.Instance.IsGamePlaying())
         {
-            GameObject cardButton = Instantiate(Button);
-            cardButton.name ="" + i;
-            cardButton.transform.SetParent(puzzleField, false);
-        }    
+            for (int i = 0; i < 8; i++)
+            {
+                GameObject cardButton = Instantiate(Button);
+                cardButton.name = "" + i;
+                cardButton.transform.SetParent(puzzleField, false);
+            }
+        }
     }
 }

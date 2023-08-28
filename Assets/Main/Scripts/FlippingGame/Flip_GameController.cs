@@ -35,16 +35,28 @@ public class Flip_GameController : MonoBehaviour
         icon = Resources.LoadAll<Sprite>("Sprites/icon");
     }
 
+    //private void Start()
+    //{
+    //    GetCardButtons();
+    //    AddListeners();
+    //    AddCardIcon();
+    //    Shuffle(cardIcon);
+    //    gameGuesses = cardIcon.Count / 2;
+    //}
+
     private void Start()
+    {
+        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        gameGuesses = cardIcon.Count / 2;
+
+    }
+
+    private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
         GetCardButtons();
         AddListeners();
         AddCardIcon();
         Shuffle(cardIcon);
-        gameGuesses = cardIcon.Count / 2;
-
-        //coroutineAllowed = true;
-        //facedUp = false;
     }
 
     void GetCardButtons()
