@@ -8,18 +8,23 @@ using UnityEngine.UI;
 public class SO_Animal : ScriptableObject
 {
     //Sure Variable
-    protected string ID;
+    [Header("Basic information of animal")]
+    [SerializeField] protected string ID;
     public bool clock;
+    [Header("Names of animal")]
     public string NameVn;
     public string NameUS;
-    public Sprite Sprite;
+    [Header("Sprites of animal")]
+    public Sprite Avatar;
     public Sprite Icon;
 
-    //waitting considering variable
+    [Header("Sounds of animal")]
+    public AudioClip animalSound; //the sound of an animal
+    public AudioClip characteristicSound;//dac diem cua dong vat
+    public AudioClip storySound;//cau chuyen
+
+    [Header("String of animal")]
     public string Content;
-    public AudioClip animalSound;
-
-
     public string getID()
     {
         return ID;
