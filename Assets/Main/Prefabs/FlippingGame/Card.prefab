@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6851816629200737773}
   - component: {fileID: 7089639779036120717}
   - component: {fileID: 4712478052069253056}
+  - component: {fileID: 3372120716272698168}
   m_Layer: 5
   m_Name: Card
   m_TagString: CardButton
@@ -135,8 +136,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7c059c72da4ba478168e4b5400827b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceSprite: {fileID: -3779280, guid: 6b68bf958480b014098160c8510567c8, type: 3}
   backSprite: {fileID: -1173382872, guid: 6b68bf958480b014098160c8510567c8, type: 3}
+--- !u!114 &3372120716272698168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3747699859313002446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.31764707}
+  m_EffectDistance: {x: 10, y: -10}
+  m_UseGraphicAlpha: 0
 --- !u!1 &6804648050493518689
 GameObject:
   m_ObjectHideFlags: 0

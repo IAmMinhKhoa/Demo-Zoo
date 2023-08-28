@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
     private Image rend;
 
     [SerializeField]
-    private Sprite faceSprite, backSprite;
+    private Sprite backSprite;
 
 
     // Start is called before the first frame update
