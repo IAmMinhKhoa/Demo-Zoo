@@ -19,7 +19,9 @@ public class FlipGameManager : MonoBehaviour
     private State state;
     private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
-    private float gamePLayingTimer = 20f;
+    private float gamePLayingTimer;
+    private float gamePLayingTimerMax = 10f;
+
 
 
     private void Awake()
@@ -46,6 +48,7 @@ public class FlipGameManager : MonoBehaviour
                 {
                     state = State.GamePlaying;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
+                    gamePLayingTimer = gamePLayingTimerMax;
                 }
                 break;
             case State.GamePlaying:
@@ -72,8 +75,18 @@ public class FlipGameManager : MonoBehaviour
         return state == State.CountdownToStart;
     }
 
+    public bool IsGameOver()
+    {
+        return state == State.GameOver;
+    }
+
     public float GetCountdownToStartTimer()
     {
         return countdownToStartTimer;
+    }
+
+    public float GetGamePlayingTimerNormaliezed()
+    {
+        return 1 - (gamePLayingTimer / gamePLayingTimerMax);
     }
 }

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class Flip_GameController : MonoBehaviour
 {
+    public static Flip_GameController Instance { get; private set; }
+
     [SerializeField]
     private Sprite frontSprite, backSprite;
-
-    //private bool coroutineAllowed, facedUp;
 
     public List<Button> cardButtons;
 
     public Sprite[] icon;
 
-    public List<Sprite> cardIcon;
+    public List<Sprite> cardIcon;         
 
     private bool firstGuess, secondGuess;
 
@@ -30,6 +30,7 @@ public class Flip_GameController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         cardButtons = new List<Button>();
         cardIcon = new List<Sprite>();
         icon = Resources.LoadAll<Sprite>("Sprites/icon");
@@ -262,5 +263,10 @@ public class Flip_GameController : MonoBehaviour
             list[i] = list[randomIndex];
             list[randomIndex] = sprite;
         }
+    }
+
+    public int GetCountCorrectGuesses()
+    {
+        return countCorrectGuesses;
     }
 }
