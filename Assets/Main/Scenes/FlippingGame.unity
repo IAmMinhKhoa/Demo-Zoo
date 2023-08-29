@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0043b3422542e4ca944f7cd563052b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointText: {fileID: 0}
+  pointText: {fileID: 201232698}
 --- !u!1 &1243337460
 GameObject:
   m_ObjectHideFlags: 0

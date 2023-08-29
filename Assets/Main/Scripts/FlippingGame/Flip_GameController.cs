@@ -19,7 +19,7 @@ public class Flip_GameController : MonoBehaviour
     private bool firstGuess, secondGuess;
 
     private int countGuesses;
-    private int countCorrectGuesses;
+    private int countCorrectGuesses = 0;
     private int gameGuesses;
 
     private int firstGuessIndex, secondGuessIndex;
