@@ -18,10 +18,10 @@ public class ComponentCardAnimalInBook : MonoBehaviour
     public void LoadDataToCard(SO_Animal ListDataAnimal)
     {
         Icon.sprite = ListDataAnimal.Icon;
-        TextNameVN.text = ListDataAnimal.NameVn;
-        TextNameUS.text = ListDataAnimal.NameUS;
-        AudioSoundVN.clip = ListDataAnimal.animalSound;
-        AudioSoundUS.clip = ListDataAnimal.animalSound;
+        TextNameVN.text = ListDataAnimal.Str_NameVn;
+        TextNameUS.text = ListDataAnimal.Str_NameUs;
+        AudioSoundVN.clip = ListDataAnimal.A_NameVn;
+        AudioSoundUS.clip = ListDataAnimal.A_NameUs;
     }
     public void InstanceCardAnimal(GameObject GO_ListAnimal)
     {

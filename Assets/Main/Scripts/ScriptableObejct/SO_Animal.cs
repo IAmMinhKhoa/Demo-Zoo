@@ -7,31 +7,32 @@ using UnityEngine.UI;
 
 public class SO_Animal : ScriptableObject
 {
-    //Sure Variable
-    [Header("Basic information of animal")]
-    [SerializeField] protected string ID;
+    [SerializeField] protected string ID { get;private set; }
     public bool clock;
     [Header("Names of animal")]
-    public string NameVn;
-    public string NameUS;
+    public string Str_NameVn;
+    public string Str_NameUs;
     [Header("Sprites of animal")]
     public Sprite Avatar;
     public Sprite Icon;
 
-    [Header("Sounds of animal")]
-    public AudioClip animalSound; //the sound of an animal
-    public AudioClip characteristicSound;//dac diem cua dong vat
-    public AudioClip storySound;//cau chuyen
+    [Header("Audio of animal")]
+    public AudioClip A_AnimalSound; //the sound of an animal
+    public AudioClip A_NameVn;
+    public AudioClip A_NameUs;
 
-    [Header("String of animal")]
-    public string Content;
-    public string getID()
-    {
-        return ID;
-    }
+    [Header("Information Cluster of animal")] //food, characteristic, conservation status,habitat
+    public InformationCluster IC_food; //thuc an
+    public InformationCluster IC_characteristic; //dac diem
+    public InformationCluster IC_conservation;//tinh trang bao ton
+    public InformationCluster IC_habitat;//moi truong song
+  
 
-    public void setID(string ID)
+    [System.Serializable]
+    public class InformationCluster //cum thong tin
     {
-        this.ID = ID;   
+        public string Str_Content;
+        public AudioClip A_audio;
+        public List<Sprite> L_Sprite;
     }
 }
