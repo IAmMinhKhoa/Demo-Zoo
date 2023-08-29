@@ -1878,6 +1878,7 @@ GameObject:
   - component: {fileID: 1057609072}
   - component: {fileID: 1057609071}
   - component: {fileID: 1057609070}
+  - component: {fileID: 1057609073}
   m_Layer: 5
   m_Name: FlipGame
   m_TagString: Untagged
@@ -1982,8 +1983,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d98b391c8196d174ba92ceb619e97a1c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2000,6 +2001,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057609068}
   m_CullTransparentMesh: 1
+--- !u!114 &1057609073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057609068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40cc0acb5cedff4489be764aed72c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneAsset: {fileID: 102900000, guid: 253c9b6b87dc854419db844f52239ae4, type: 3}
+  btnChangeScence: {fileID: 0}
 --- !u!1 &1058405694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2562,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1986348210}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.3524229
+  m_Size: 0.3342528
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
