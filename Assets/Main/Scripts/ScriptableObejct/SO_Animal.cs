@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SO_Animal : ScriptableObject
 {
     [SerializeField] protected string ID { get;private set; }
-    public bool clock;
+    public bool Lock;
     [Header("Names of animal")]
     public string Str_NameVn;
     public string Str_NameUs;
