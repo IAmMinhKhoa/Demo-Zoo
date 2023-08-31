@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6f41c6d00f9064bbc3a35d59b9bcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easyLevelMaxTime: 5
+  easyLevelMaxTime: 20
   mediumLevelMaxTime: 30
   hardLevelMaxTime: 40
 --- !u!4 &1138382750

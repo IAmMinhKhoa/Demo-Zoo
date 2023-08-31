@@ -37,18 +37,16 @@ public class GameOverUI : MonoBehaviour
 
     private void Show()
     {
-        if (gameObject != null && !gameObject.Equals(null))
-        {
-            gameObject.SetActive(true);
-        }
+
+        gameObject.SetActive(true);
+
     }
 
     private void Hide()
     {
-        if (gameObject != null && !gameObject.Equals(null))
-        {
-            gameObject.SetActive(false);
-        }
+
+        gameObject.SetActive(false);
+
     }
 
     public void SetGameVictoryShown(bool value)
