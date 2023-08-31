@@ -10,10 +10,14 @@ public class InteractAnimal : MonoBehaviour
  
     [SerializeField] protected GameObject tableInforAnimal;
     [SerializeField] protected Button btn_Exits;
+
+  
     private void Start()
     {
         animator_Animal = GetComponent<Animator>();
         btn_Exits.onClick.AddListener(() => ActiveTableInfor(false));
+
+ 
     }
 
     //Indirect giantiep

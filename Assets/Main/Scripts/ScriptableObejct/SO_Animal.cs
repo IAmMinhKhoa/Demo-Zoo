@@ -107,11 +107,5 @@ public class SO_Animal : ScriptableObject
         set { iC_habitat = value; }
     }
 
-    [System.Serializable]
-    public class InformationCluster //cum thong tin
-    {
-        public string Str_Content;
-        public AudioClip A_audio;
-        public List<Sprite> L_Sprite;
-    }
+   
 }
