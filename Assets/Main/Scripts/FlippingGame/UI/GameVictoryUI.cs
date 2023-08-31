@@ -18,7 +18,8 @@ public class GameVictoryUI : MonoBehaviour
 
     private void FlipGameController_OnStateChanged(object sender, System.EventArgs e)
     {
-        Show();   
+        Show();
+        GameOverUI.Instance.SetGameVictoryShown(true);
     }
 
     private void Show()

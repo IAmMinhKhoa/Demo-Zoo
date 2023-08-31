@@ -55,10 +55,7 @@ public class Flip_GameController : MonoBehaviour
 
     private void Update()
     {
-        if (CheckIfTheGameIsFinished() == true)
-        {
-            OnStateChanged?.Invoke(this, EventArgs.Empty);
-        }    
+         
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
@@ -186,6 +183,10 @@ public class Flip_GameController : MonoBehaviour
             }
 
             countCorrectGuesses++;
+            if (CheckIfTheGameIsFinished() == true)
+            {
+                OnStateChanged?.Invoke(this, EventArgs.Empty);
+            }
         }  
         else
         {
