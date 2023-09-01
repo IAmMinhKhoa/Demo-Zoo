@@ -13,7 +13,8 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
     {
         nameAnimal = SOanimal.Str_NameVn + " - " + SOanimal.Str_NameUs;
         LoadData();
-        tableInforAnimal.GO_Speaker_food.GetComponent<Button>().onClick.AddListener(food);
+        //tableInforAnimal.GO_Speaker_food.GetComponent<Button>().onClick.AddListener(food);
+        tableInforAnimal.GetButtonInTable(tableInforAnimal.GO_Speaker_food).onClick.AddListener(food);
     }
     protected void LoadData()
     {
@@ -21,7 +22,8 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
         
 
 
-        tableInforAnimal.GO_Speaker_food.GetComponent<AudioSource>().clip = SOanimal.IC_Food.A_audio;
+       // tableInforAnimal.GO_Speaker_food.GetComponent<AudioSource>().clip = SOanimal.IC_Food.A_audio;
+        tableInforAnimal.GetAudioSourceInTable(tableInforAnimal.GO_Speaker_food).clip= SOanimal.IC_Food.A_audio;
     }
     protected void food()
     {
