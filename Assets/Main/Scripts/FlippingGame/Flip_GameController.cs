@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static LevelButtonManager;
 
 public class Flip_GameController : MonoBehaviour
 {
     public static Flip_GameController Instance { get; private set; }
+
+    public event EventHandler OnStateChanged;
 
     [SerializeField]
     private Sprite frontSprite, backSprite;
@@ -19,13 +23,14 @@ public class Flip_GameController : MonoBehaviour
     private bool firstGuess, secondGuess;
 
     private int countGuesses;
-    private int countCorrectGuesses;
+    private int countCorrectGuesses = 0;
     private int gameGuesses;
 
     private int firstGuessIndex, secondGuessIndex;
 
     private string firstGuessPuzzel, secondGuessPuzzel;
 
+    int currentLevel, gameLevel;
 
 
     private void Awake()
@@ -48,16 +53,26 @@ public class Flip_GameController : MonoBehaviour
     private void Start()
     {
         FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
-        gameGuesses = cardIcon.Count / 2;
+        currentLevel = (int)LevelManager.Instance.currentLevel;
+        gameLevel = (int)LevelButtonManager.Instance.gameLevel;
+        Debug.Log(currentLevel + " " + gameLevel);
+    }
 
+    private void Update()
+    {
+         
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        GetCardButtons();
-        AddListeners();
-        AddCardIcon();
-        Shuffle(cardIcon);
+        if (FlipGameManager.Instance.IsGamePlaying())
+        {
+            GetCardButtons();
+            AddListeners();
+            AddCardIcon();
+            Shuffle(cardIcon);
+            gameGuesses = cardIcon.Count / 2;
+        }
     }
 
     void GetCardButtons()
@@ -172,7 +187,15 @@ public class Flip_GameController : MonoBehaviour
                 secondImage.gameObject.SetActive(false);
             }
 
-            CheckIfTheGameIsFinished();
+            countCorrectGuesses++;
+            if (CheckIfTheGameIsFinished() == true)
+            {
+                OnStateChanged?.Invoke(this, EventArgs.Empty);
+                if (currentLevel == gameLevel)
+                {                 
+                    LevelManager.Instance.OnGameVictory();
+                }
+            }
         }  
         else
         {
@@ -200,15 +223,14 @@ public class Flip_GameController : MonoBehaviour
         firstGuess = secondGuess = false;
     }
 
-    private void CheckIfTheGameIsFinished()
+    public bool CheckIfTheGameIsFinished()
     {
-        countCorrectGuesses++;
-
-        if (countCorrectGuesses == gameGuesses)
+        if (gameGuesses > 0)
         {
-            Debug.Log("Game Finished");
-            Debug.Log("It took you " + countGuesses + " many guess(es) to finish the game");
+            return countCorrectGuesses == gameGuesses;
         }
+        else
+            return false;
     }
 
     private void FlipFrontCard(Button button)
@@ -259,7 +281,7 @@ public class Flip_GameController : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             Sprite sprite = list[i];
-            int randomIndex = Random.Range(i, list.Count);
+            int randomIndex = UnityEngine.Random.Range(i, list.Count);
             list[i] = list[randomIndex];
             list[randomIndex] = sprite;
         }
