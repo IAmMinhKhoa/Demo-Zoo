@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +10,6 @@ public class AddCard : MonoBehaviour
     [SerializeField]
     private GameObject Button;
 
-    //private void Awake()
-    //{
-    //    for (int i = 0; i < 8; i++)
-    //    {
-    //        GameObject cardButton = Instantiate(Button);
-    //        cardButton.name ="" + i;
-    //        cardButton.transform.SetParent(puzzleField, false);
-    //    }    
-    //}
-
     private void Start()
     {
         FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
@@ -29,11 +19,40 @@ public class AddCard : MonoBehaviour
     {
         if (FlipGameManager.Instance.IsGamePlaying())
         {
-            for (int i = 0; i < 8; i++)
+            LevelManager levelManager = LevelManager.Instance;
+            bool isEasyUnlocked = levelManager.isEasyUnlocked;
+            bool isMediumUnlocked = levelManager.isMediumUnlocked;
+            bool isHardUnlocked = levelManager.isHardUnlocked;
+
+            if (isEasyUnlocked)
             {
-                GameObject cardButton = Instantiate(Button);
-                cardButton.name = "" + i;
-                cardButton.transform.SetParent(puzzleField, false);
+                // Mở khóa level Easy
+                for (int i = 0; i < 8; i++)
+                {
+                    GameObject cardButton = Instantiate(Button);
+                    cardButton.name = "" + i;
+                    cardButton.transform.SetParent(puzzleField, false);
+                }
+            }
+            else if (isMediumUnlocked)
+            {
+                // Mở khóa level Medium
+                for (int i = 0; i < 10; i++)
+                {
+                    GameObject cardButton = Instantiate(Button);
+                    cardButton.name = "" + i;
+                    cardButton.transform.SetParent(puzzleField, false);
+                }
+            }
+            else if (isHardUnlocked)
+            {
+                // Mở khóa level Hard
+                for (int i = 0; i < 14; i++)
+                {
+                    GameObject cardButton = Instantiate(Button);
+                    cardButton.name = "" + i;
+                    cardButton.transform.SetParent(puzzleField, false);
+                }
             }
         }
     }
