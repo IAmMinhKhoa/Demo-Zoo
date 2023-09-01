@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine.UI;
@@ -18,5 +18,9 @@ public class ButtonMenu : MonoBehaviour
     public void OnButtonClick()
     {
         SceneManager.LoadScene(sceneAsset.name);
+
+        // Cập nhật lại giá trị currentLevel sau khi load scene
+        LevelManager.Instance.LoadSavedLevel();
+        LevelManager.Instance.LoadUnlockedLevels();
     }
 }

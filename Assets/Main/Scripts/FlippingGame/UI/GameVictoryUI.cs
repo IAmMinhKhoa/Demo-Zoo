@@ -6,6 +6,7 @@ public class GameVictoryUI : MonoBehaviour
 {
     public static GameVictoryUI Instance { get; private set; }
 
+
     private void Awake()
     {
         Instance = this;

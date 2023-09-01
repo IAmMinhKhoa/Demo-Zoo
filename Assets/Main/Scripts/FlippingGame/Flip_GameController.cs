@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static LevelButtonManager;
 
 public class Flip_GameController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class Flip_GameController : MonoBehaviour
 
     private string firstGuessPuzzel, secondGuessPuzzel;
 
+    int currentLevel, gameLevel;
 
 
     private void Awake()
@@ -51,6 +53,9 @@ public class Flip_GameController : MonoBehaviour
     private void Start()
     {
         FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        currentLevel = (int)LevelManager.Instance.currentLevel;
+        gameLevel = (int)LevelButtonManager.Instance.gameLevel;
+        Debug.Log(currentLevel + " " + gameLevel);
     }
 
     private void Update()
@@ -186,6 +191,10 @@ public class Flip_GameController : MonoBehaviour
             if (CheckIfTheGameIsFinished() == true)
             {
                 OnStateChanged?.Invoke(this, EventArgs.Empty);
+                if (currentLevel == gameLevel)
+                {                 
+                    LevelManager.Instance.OnGameVictory();
+                }
             }
         }  
         else

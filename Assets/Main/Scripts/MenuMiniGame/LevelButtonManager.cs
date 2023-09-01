@@ -2,56 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static LevelManager;
 
 public class LevelButtonManager : MonoBehaviour
 {
     public static LevelButtonManager Instance { get; private set; }
 
-    public bool isEasyLevel { get; private set; }
-    public bool isMediumLevel { get; private set; }
-    public bool isHardLevel { get; private set; }
+    public enum GameLevel
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
+    public GameLevel gameLevel;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void UnlockEasyLevel()
-    {
-        if (!isEasyLevel)
+     public void easyButton()
+     {
+        if(LevelManager.Instance.isEasyUnlocked)
         {
-            isEasyLevel = true;     
-            isMediumLevel = false;
-            isHardLevel = false;
+            gameLevel = GameLevel.Easy;
+            SceneManager.LoadScene("FlippingGame");
         }
-        LevelManager.Instance.UnlockEasyLevel();
-        SceneManager.LoadScene("FlippingGame");
+     }
 
+    public void mediumButton()
+    {
+        if (LevelManager.Instance.isMediumUnlocked)
+        {
+            gameLevel = GameLevel.Medium;
+            SceneManager.LoadScene("FlippingGame");
+        }
     }
 
-    public void UnlockMediumLevel()
+    public void hardButton()
     {
-        if (!isMediumLevel)
+        if (LevelManager.Instance.isHardUnlocked)
         {
-            isMediumLevel = true;
-            isEasyLevel = false;
-            isHardLevel = false;
+            gameLevel = GameLevel.Hard;
+            SceneManager.LoadScene("FlippingGame");
         }
-        LevelManager.Instance.UnlockMediumLevel();
-        SceneManager.LoadScene("FlippingGame");
-
-    }
-
-    public void UnlockHardLevel()
-    {
-        if (!isHardLevel)
-        {
-            isHardLevel = true;
-            isEasyLevel = false;
-            isMediumLevel = false;
-        }
-        LevelManager.Instance.UnlockHardLevel();
-        SceneManager.LoadScene("FlippingGame");
     }
 }
 

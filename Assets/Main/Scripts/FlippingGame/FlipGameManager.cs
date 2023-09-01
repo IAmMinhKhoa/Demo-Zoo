@@ -99,21 +99,19 @@ public class FlipGameManager : MonoBehaviour
     private float getGamePlayingTimerMax()
     {
         LevelButtonManager levelButtonManager = LevelButtonManager.Instance;
-        bool isEasyLevel = levelButtonManager.isEasyLevel;
-        bool isMediumLevel = levelButtonManager.isMediumLevel;
-        bool isHardLevel = levelButtonManager.isHardLevel;
+        int gameLevel = (int)levelButtonManager.gameLevel;
 
 
-        if (isEasyLevel)
+        if (gameLevel == 0)
         {
             gamePLayingTimerMax = easyLevelMaxTime;
         }
-        else if (isMediumLevel)
+        else if (gameLevel == 1)
         {
             gamePLayingTimerMax = mediumLevelMaxTime;
 
         }
-        else if (isHardLevel)
+        else if (gameLevel == 2)
         {
             gamePLayingTimerMax = hardLevelMaxTime;
 
