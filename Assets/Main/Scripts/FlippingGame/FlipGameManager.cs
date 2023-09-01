@@ -109,12 +109,10 @@ public class FlipGameManager : MonoBehaviour
         else if (gameLevel == 1)
         {
             gamePLayingTimerMax = mediumLevelMaxTime;
-
         }
         else if (gameLevel == 2)
         {
             gamePLayingTimerMax = hardLevelMaxTime;
-
         }
         return gamePLayingTimerMax;
     }
