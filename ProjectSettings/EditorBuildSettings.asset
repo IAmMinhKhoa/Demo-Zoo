@@ -20,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main/Scenes/Zoo.unity
     guid: 32f2f3632065e6d47ab9b2ea5abf2923
-  - enabled: 1
-    path: Assets/Main/Scenes/FlippingGame.unity
-    guid: 253c9b6b87dc854419db844f52239ae4
   m_configObjects: {}

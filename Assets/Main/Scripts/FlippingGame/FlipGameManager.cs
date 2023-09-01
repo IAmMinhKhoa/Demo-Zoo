@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,23 +16,17 @@ public class FlipGameManager : MonoBehaviour
         GameOver,
     }
 
-    [SerializeField] private float easyLevelMaxTime = 5f;
-    [SerializeField] private float mediumLevelMaxTime = 30f;
-    [SerializeField] private float hardLevelMaxTime = 40f;
-
     private State state;
     private float waitingToStartTimer = 1f;
     private float countdownToStartTimer = 3f;
     private float gamePLayingTimer;
-    private float gamePLayingTimerMax;
+    private float gamePLayingTimerMax = 10f;
 
 
 
     private void Awake()
     {
-        Instance = this;
-
-        // Khởi tạo các giá trị khác   
+        Instance = this;    
         state = State.WaitingToStart;
     }
 
@@ -54,7 +48,7 @@ public class FlipGameManager : MonoBehaviour
                 {
                     state = State.GamePlaying;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
-                    gamePLayingTimer = getGamePlayingTimerMax();
+                    gamePLayingTimer = gamePLayingTimerMax;
                 }
                 break;
             case State.GamePlaying:
@@ -94,28 +88,5 @@ public class FlipGameManager : MonoBehaviour
     public float GetGamePlayingTimerNormaliezed()
     {
         return 1 - (gamePLayingTimer / gamePLayingTimerMax);
-    }
-
-    private float getGamePlayingTimerMax()
-    {
-        LevelButtonManager levelButtonManager = LevelButtonManager.Instance;
-        int gameLevel = (int)levelButtonManager.gameLevel;
-
-
-        if (gameLevel == 0)
-        {
-            gamePLayingTimerMax = easyLevelMaxTime;
-        }
-        else if (gameLevel == 1)
-        {
-            gamePLayingTimerMax = mediumLevelMaxTime;
-
-        }
-        else if (gameLevel == 2)
-        {
-            gamePLayingTimerMax = hardLevelMaxTime;
-
-        }
-        return gamePLayingTimerMax;
     }
 }
