@@ -19,24 +19,25 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2752ea8cbceafa84eaa581123399106a, type: 3}
   a_AnimalSound: {fileID: 0}
   a_NameVn: {fileID: 8300000, guid: e57e59f3f2803794f8ddb52e245640ef, type: 3}
-  a_NameUs: {fileID: 8300000, guid: e57e59f3f2803794f8ddb52e245640ef, type: 3}
+  a_NameUs: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
+  a_NameVnUs: {fileID: 8300000, guid: e986056f914f4974896a49527ca80041, type: 3}
   iC_food:
     Str_Content: "Chu\u1ED1i, C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i, C\xE0
       r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i, C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i,
       C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i, C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i,
       C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i, C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,Chu\u1ED1i,
       C\xE0 r\u1ED1t, D\u01B0a h\u1EA5u,"
-    A_audio: {fileID: 8300000, guid: e986056f914f4974896a49527ca80041, type: 3}
+    A_audio: {fileID: 8300000, guid: 51f0c54706b53c14c9c24bbd63bb18a6, type: 3}
     L_Sprite: []
   iC_characteristic:
     Str_Content: 
-    A_audio: {fileID: 0}
+    A_audio: {fileID: 8300000, guid: e885484e1bc99fb47a0ac3f6bfa586b1, type: 3}
     L_Sprite: []
   iC_conservation:
     Str_Content: 
-    A_audio: {fileID: 0}
+    A_audio: {fileID: 8300000, guid: 532e417ffa3f95747908419a00be3780, type: 3}
     L_Sprite: []
   iC_habitat:
     Str_Content: 
-    A_audio: {fileID: 0}
+    A_audio: {fileID: 8300000, guid: e57e59f3f2803794f8ddb52e245640ef, type: 3}
     L_Sprite: []

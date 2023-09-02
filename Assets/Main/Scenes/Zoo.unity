@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869519b7535312e499e195da0dc168ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SOanimal: {fileID: 11400000, guid: 732c2aa560a18134999fdf6932fe874b, type: 2}
+  SO_animal: {fileID: 11400000, guid: 732c2aa560a18134999fdf6932fe874b, type: 2}
   tableInforAnimal: {fileID: 1773275043}
 --- !u!1 &176771856
 GameObject:
@@ -8140,7 +8140,7 @@ MonoBehaviour:
   GO_Speaker_Name: {fileID: 3742608037365887100}
   GO_Speaker_food: {fileID: 3530760097980734080}
   GO_Speaker_characteristic: {fileID: 544798342056787194}
-  GO_Speaker_conservatio: {fileID: 2586545085243810099}
+  GO_Speaker_conservation: {fileID: 2586545085243810099}
   GO_Speaker_habitat: {fileID: 488974797369300306}
 --- !u!1 &1904055084
 GameObject:
@@ -8735,19 +8735,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5243122695937932523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5243122695937932524}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &136111233353109879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8861,19 +8849,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8025293281213121303}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8025293281213121304}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &304443672746171643
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,7 +8994,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 136111233353109879}
   m_HandleRect: {fileID: 2479626648420887928}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10166,19 +10142,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7506477405162393986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8886025432636778447}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!222 &3491513662410924285
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10847,19 +10811,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7886746306848320837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8888469173080024514}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4774601238021467609
 GameObject:
   m_ObjectHideFlags: 0
@@ -11425,19 +11377,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3770663088365567279}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8079126215926730016}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5920162566324745629
 GameObject:
   m_ObjectHideFlags: 0
@@ -12450,7 +12390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 61.177, y: 0.00095363363}
+  m_AnchoredPosition: {x: 61.177, y: -0.000032038235}
   m_SizeDelta: {x: -45.0781, y: 538.88}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8690758986960605450
@@ -12652,7 +12592,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
