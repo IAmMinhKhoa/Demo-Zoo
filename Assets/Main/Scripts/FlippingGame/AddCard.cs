@@ -10,6 +10,13 @@ public class AddCard : MonoBehaviour
     [SerializeField]
     private GameObject Button;
 
+    [SerializeField]
+    private int numberCardEasy;
+    [SerializeField]
+    private int numberCardMedium;
+    [SerializeField]
+    private int numberCardHard;
+
     private void Start()
     {
         FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
@@ -19,35 +26,33 @@ public class AddCard : MonoBehaviour
     {
         if (FlipGameManager.Instance.IsGamePlaying())
         {
-            LevelManager levelManager = LevelManager.Instance;
-            bool isEasyUnlocked = levelManager.isEasyUnlocked;
-            bool isMediumUnlocked = levelManager.isMediumUnlocked;
-            bool isHardUnlocked = levelManager.isHardUnlocked;
+            LevelButtonManager levelButtonManager = LevelButtonManager.Instance;
+            int gameLevel = (int)levelButtonManager.gameLevel;
 
-            if (isEasyUnlocked)
+            if (gameLevel == 0)
             {
                 // Mở khóa level Easy
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < numberCardEasy; i++)
                 {
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;
                     cardButton.transform.SetParent(puzzleField, false);
                 }
             }
-            else if (isMediumUnlocked)
+            else if (gameLevel == 1)
             {
                 // Mở khóa level Medium
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < numberCardMedium; i++)
                 {
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;
                     cardButton.transform.SetParent(puzzleField, false);
                 }
             }
-            else if (isHardUnlocked)
+            else if (gameLevel == 2)
             {
                 // Mở khóa level Hard
-                for (int i = 0; i < 14; i++)
+                for (int i = 0; i < numberCardHard; i++)
                 {
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;

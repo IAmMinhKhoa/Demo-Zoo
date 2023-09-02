@@ -3558,6 +3558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleField: {fileID: 279510987}
   Button: {fileID: 3747699859313002446, guid: 2346f9a6ab0e25345b4d069fe417b0db, type: 3}
+  numberCardEasy: 8
+  numberCardMedium: 12
+  numberCardHard: 16
 --- !u!114 &1882741827
 MonoBehaviour:
   m_ObjectHideFlags: 0
