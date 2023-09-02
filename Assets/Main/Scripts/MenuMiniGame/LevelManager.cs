@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("IsFirstRun", 0);
         }
+        //PlayerPrefs.DeleteAll();
     }
 
     private void Start()
