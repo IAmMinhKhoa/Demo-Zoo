@@ -127,6 +127,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "MiniGame",
+            "id": "fc07a034-c015-4834-9e47-72b6a949b951",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "747485f7-9fcc-49ef-b48c-6a6cb24d388b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5f284c38-7611-4fb2-b9c0-d338484504de",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

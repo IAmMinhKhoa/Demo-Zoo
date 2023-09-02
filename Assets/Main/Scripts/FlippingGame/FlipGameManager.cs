@@ -8,6 +8,8 @@ public class FlipGameManager : MonoBehaviour
     public static FlipGameManager Instance { get; private set;  }
 
     public event EventHandler OnStateChanged;
+
+    public event EventHandler OnPauseAction;
     private enum State
     {
         WaitingToStart,
@@ -25,6 +27,7 @@ public class FlipGameManager : MonoBehaviour
     private float countdownToStartTimer = 3f;
     private float gamePLayingTimer;
     private float gamePLayingTimerMax;
+    private bool isGamePause = false;
 
 
 
@@ -69,6 +72,8 @@ public class FlipGameManager : MonoBehaviour
                 break;       
         }
         Debug.Log(state);
+        Debug.Log(isGamePause);
+
     }
 
     public bool IsGamePlaying()
@@ -84,6 +89,29 @@ public class FlipGameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return state == State.GameOver;
+    }
+
+    public void TogglePauseGame()
+    {
+        isGamePause = !isGamePause;
+        if (isGamePause)
+        {
+            Time.timeScale = 0f;
+            OnPauseAction?.Invoke(this, EventArgs.Empty);
+        } else
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void tinmeScaleOn()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void tinmeScaleOff()
+    {
+        Time.timeScale = 1f;
     }
 
     public float GetCountdownToStartTimer()
