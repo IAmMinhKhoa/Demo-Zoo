@@ -100,6 +100,16 @@ public class FlipGameManager : MonoBehaviour
         return state == State.GameOver;
     }
 
+    public void restartGame()
+    {
+        AddCard.Instance.DestroyCardButtons();
+        waitingToStartTimer = 1f;
+        countdownToStartTimer = 3f;
+        gamePLayingTimer = 0f;
+        isGamePause = false;
+        state = State.WaitingToStart;
+    }
+
     public void TogglePauseGame()
     {
         isGamePause = !isGamePause;

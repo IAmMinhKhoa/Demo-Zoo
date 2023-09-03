@@ -280,4 +280,16 @@ public class Flip_GameController : MonoBehaviour
     {
         return countCorrectGuesses;
     }
+
+    public void ResetArrays()
+    {
+        cardButtons.Clear();
+        cardIcon.Clear();
+        countCorrectGuesses = 0;
+    }
+
+    public static implicit operator Flip_GameController(AddCard v)
+    {
+        throw new NotImplementedException();
+    }
 }

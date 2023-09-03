@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static LevelManager;
@@ -56,6 +57,11 @@ public class LevelButtonManager : MonoBehaviour
             GanmeContent.SetActive(true);
 
         }
+    }
+
+    public void closeButton() 
+    {
+        SceneManager.LoadScene("MenuMiniGame");
     }
 }
 

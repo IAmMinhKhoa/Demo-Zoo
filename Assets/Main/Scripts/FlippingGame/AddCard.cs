@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AddCard : MonoBehaviour
 {
+    public static AddCard Instance { get; private set; }
+
+
+    public List<Button> cardButtons;
     [SerializeField]
     private Transform puzzleField;
 
@@ -16,6 +21,12 @@ public class AddCard : MonoBehaviour
     private int numberCardMedium;
     [SerializeField]
     private int numberCardHard;
+
+    private void Awake()
+    {
+        Instance = this;
+        cardButtons = new List<Button>();
+    }
 
     private void Start()
     {
@@ -37,6 +48,7 @@ public class AddCard : MonoBehaviour
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;
                     cardButton.transform.SetParent(puzzleField, false);
+                    cardButtons.Add(cardButton.GetComponent<Button>());
                 }
             }
             else if (gameLevel == 1)
@@ -47,6 +59,7 @@ public class AddCard : MonoBehaviour
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;
                     cardButton.transform.SetParent(puzzleField, false);
+                    cardButtons.Add(cardButton.GetComponent<Button>());
                 }
             }
             else if (gameLevel == 2)
@@ -57,8 +70,19 @@ public class AddCard : MonoBehaviour
                     GameObject cardButton = Instantiate(Button);
                     cardButton.name = "" + i;
                     cardButton.transform.SetParent(puzzleField, false);
+                    cardButtons.Add(cardButton.GetComponent<Button>());
                 }
             }
         }
+    }
+
+    public void DestroyCardButtons()
+    {
+        foreach (Button cardButton in cardButtons)
+        {
+            Destroy(cardButton.gameObject);
+        }
+
+        cardButtons.Clear();
     }
 }
