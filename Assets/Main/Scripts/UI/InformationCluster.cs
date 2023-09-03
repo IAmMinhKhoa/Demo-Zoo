@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InformationCluster 
 {
+    [TextArea]
     public string Str_Content;
     public AudioClip A_audio;
     public List<Sprite> L_Sprite;

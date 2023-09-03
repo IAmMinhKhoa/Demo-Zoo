@@ -16,7 +16,7 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
     }
 
     protected void LoadDataSound() {
-        tableInforAnimal.LoadAudio(tableInforAnimal.GO_Speaker_Name, SO_animal.A_NameVnUs);
+        tableInforAnimal.LoadAudio(tableInforAnimal.GO_Speaker_Name, SO_animal.IC_Name.A_audio);
         tableInforAnimal.LoadAudio(tableInforAnimal.GO_Speaker_habitat, SO_animal.IC_Habitat.A_audio);
         tableInforAnimal.LoadAudio(tableInforAnimal.GO_Speaker_food, SO_animal.IC_Food.A_audio);
         tableInforAnimal.LoadAudio(tableInforAnimal.GO_Speaker_conservation, SO_animal.IC_Conservation.A_audio);
@@ -44,24 +44,33 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
     //event each Button
     protected void EventButtonName()
     {
+        tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_Name);
+        tableInforAnimal.SetTextBottom(SO_animal.IC_Name.Str_Content);
     }
     protected void EvenButtonHabita()
     {
-       
+        tableInforAnimal.SetActiveBottom(true);
+        tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_habitat);
+        tableInforAnimal.SetTextBottom(SO_animal.IC_Habitat.Str_Content);
     }
     protected void EvenButtonFood()
     {
+        tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Food.Str_Content);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_food);
     }
     protected void EvenButtonConservation()
     {
-
+        tableInforAnimal.SetActiveBottom(true);
+        tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_conservation);
+        tableInforAnimal.SetTextBottom(SO_animal.IC_Conservation.Str_Content);
     }
     protected void EvenButtonCharacteristic()
     {
-
+        tableInforAnimal.SetActiveBottom(true);
+        tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_characteristic);
+        tableInforAnimal.SetTextBottom(SO_animal.IC_Characteristic.Str_Content);
     }
 
 

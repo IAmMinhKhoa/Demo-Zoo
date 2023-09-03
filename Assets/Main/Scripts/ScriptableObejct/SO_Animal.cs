@@ -20,9 +20,9 @@ public class SO_Animal : ScriptableObject
     [SerializeField] protected AudioClip a_AnimalSound; //the sound of an animal
     [SerializeField] protected AudioClip a_NameVn;
     [SerializeField] protected AudioClip a_NameUs;
-    [SerializeField] protected AudioClip a_NameVnUs;
 
-    [Header("Information Cluster of animal")] //food, characteristic, conservation status,habitat
+    [Header("Information Cluster of animal")] //name, food, characteristic, conservation status,habitat
+    [SerializeField] protected InformationCluster iC_name; //ten
     [SerializeField] protected InformationCluster iC_food; //thuc an
     [SerializeField] protected InformationCluster iC_characteristic; //dac diem
     [SerializeField] protected InformationCluster iC_conservation;//tinh trang bao ton
@@ -83,12 +83,12 @@ public class SO_Animal : ScriptableObject
         get { return a_NameUs; }
         set { a_NameUs = value; }
     }
-    public AudioClip A_NameVnUs
+ 
+    public InformationCluster IC_Name
     {
-        get { return a_NameVnUs; }
-        set { a_NameVnUs = value; }
+        get { return iC_name; }
+        set { iC_name = value; }
     }
-
     public InformationCluster IC_Food
     {
         get { return iC_food; }

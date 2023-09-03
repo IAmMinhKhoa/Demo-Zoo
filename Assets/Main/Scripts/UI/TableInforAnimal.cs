@@ -19,7 +19,11 @@ public class TableInforAnimal : MonoBehaviour
     public GameObject GO_Speaker_characteristic;
     public GameObject GO_Speaker_conservation;
     public GameObject GO_Speaker_habitat;
-    
+
+    private void Start()
+    {
+        SetActiveBottom(false);
+    }
 
     public AudioSource GetAudioSourceInTable(GameObject GO)
     {
@@ -49,6 +53,12 @@ public class TableInforAnimal : MonoBehaviour
     public void SetTextBottom(string text)
     {
         text_SubBottom.text = text; 
+    }
+
+    public void SetActiveBottom(bool check)
+    {
+        text_SubBottom.transform.parent.parent.gameObject.SetActive(check);
+        img_demo.enabled = check;
     }
     protected void StopAllSound()
     {
