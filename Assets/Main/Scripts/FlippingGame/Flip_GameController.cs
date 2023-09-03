@@ -9,7 +9,8 @@ public class Flip_GameController : MonoBehaviour
 {
     public static Flip_GameController Instance { get; private set; }
 
-    public event EventHandler OnStateChanged;
+    public event EventHandler OnWinChanged;
+
 
     [SerializeField]
     private Sprite frontSprite, backSprite;
@@ -41,18 +42,9 @@ public class Flip_GameController : MonoBehaviour
         icon = Resources.LoadAll<Sprite>("Sprites/icon");
     }
 
-    //private void Start()
-    //{
-    //    GetCardButtons();
-    //    AddListeners();
-    //    AddCardIcon();
-    //    Shuffle(cardIcon);
-    //    gameGuesses = cardIcon.Count / 2;
-    //}
-
     private void Start()
     {
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        FlipGameManager.Instance.OnGetCard += FlipGameManager_OnGetCard;
         currentLevel = (int)LevelManager.Instance.currentLevel;
         gameLevel = (int)LevelButtonManager.Instance.gameLevel;
         Debug.Log(currentLevel + " " + gameLevel);
@@ -63,22 +55,19 @@ public class Flip_GameController : MonoBehaviour
          
     }
 
-    private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
-    {
-        if (FlipGameManager.Instance.IsGamePlaying())
-        {
-            GetCardButtons();
-            AddListeners();
-            AddCardIcon();
-            Shuffle(cardIcon);
-            gameGuesses = cardIcon.Count / 2;
-        }
+    private void FlipGameManager_OnGetCard(object sender, System.EventArgs e)
+    {   
+        GetCardButtons();
+        AddCardIcon();
+        Shuffle(cardIcon);
+        AddListeners();
+        gameGuesses = cardIcon.Count / 2;      
     }
 
     void GetCardButtons()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("CardButton");
-
+        
         for (int i = 0; i < objects.Length; i++)
         {
             cardButtons.Add(objects[i].GetComponent<Button>());
@@ -190,7 +179,7 @@ public class Flip_GameController : MonoBehaviour
             countCorrectGuesses++;
             if (CheckIfTheGameIsFinished() == true)
             {
-                OnStateChanged?.Invoke(this, EventArgs.Empty);
+                OnWinChanged?.Invoke(this, EventArgs.Empty);
                 if (currentLevel == gameLevel)
                 {                 
                     LevelManager.Instance.OnGameVictory();

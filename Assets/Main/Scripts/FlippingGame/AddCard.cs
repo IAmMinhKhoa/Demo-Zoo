@@ -28,7 +28,7 @@ public class AddCard : MonoBehaviour
         {
             LevelButtonManager levelButtonManager = LevelButtonManager.Instance;
             int gameLevel = (int)levelButtonManager.gameLevel;
-
+            
             if (gameLevel == 0)
             {
                 // Mở khóa level Easy
