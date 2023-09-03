@@ -11,7 +11,8 @@ public class TableInforAnimal : MonoBehaviour
     
 
     public TextMeshProUGUI text_SubBottom;
-    public Image img_demo;
+    public GameObject GO_ScrollImage;
+
 
     public TextMeshProUGUI text_Name;
     public GameObject GO_Speaker_Name;
@@ -58,7 +59,44 @@ public class TableInforAnimal : MonoBehaviour
     public void SetActiveBottom(bool check)
     {
         text_SubBottom.transform.parent.parent.gameObject.SetActive(check);
-        img_demo.enabled = check;
+        GO_ScrollImage.SetActive(check);
+    }
+
+    public void InitListImage(List<Sprite> L_Image)
+    {
+        GameObject GO_ContentScroll = GO_ScrollImage.transform.GetChild(0).GetChild(0).gameObject;
+        GameObject prefab_image = GO_ContentScroll.transform.GetChild(0).gameObject;
+
+
+        if (L_Image.Count != 0)
+        {
+            //reset trong content(ch?a l?i 1 ?nh)
+            DestroyChildren(GO_ContentScroll);
+
+
+            //instance theo sl anh
+            for (int i = 0; i < L_Image.Count; i++)
+            {
+                GameObject GO_image = Instantiate(prefab_image, GO_ContentScroll.transform);
+                Image image = GO_image.GetComponent<Image>();
+                image.sprite = L_Image[i];
+                image.enabled = true;
+            }
+        }
+        else
+        {
+            GO_ScrollImage.SetActive(false);
+        }
+    }
+    private void DestroyChildren(GameObject parent)
+    {
+        // L?p qua t?t c? các ??i t??ng con trong ??i t??ng cha
+        foreach (Transform child in parent.transform)
+        {
+            // Xóa ??i t??ng con
+            Destroy(child.gameObject);
+            // Ho?c s? d?ng DestroyImmediate(child.gameObject) n?u b?n mu?n xóa ngay l?p t?c mà không ch? khung c?p nh?t ti?p theo
+        }
     }
     protected void StopAllSound()
     {

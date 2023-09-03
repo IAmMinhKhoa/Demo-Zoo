@@ -47,12 +47,16 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
         tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_Name);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Name.Str_Content);
+
+        LoadImageFromSO_Animal(SO_animal.IC_Name);
     }
     protected void EvenButtonHabita()
     {
         tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_habitat);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Habitat.Str_Content);
+
+        LoadImageFromSO_Animal(SO_animal.IC_Habitat);
     }
     protected void EvenButtonFood()
     {
@@ -73,6 +77,11 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
         tableInforAnimal.SetTextBottom(SO_animal.IC_Characteristic.Str_Content);
     }
 
+    protected void LoadImageFromSO_Animal(InformationCluster IC)
+    {
+        tableInforAnimal.InitListImage(IC.L_Sprite);
+
+    }
 
 
 }

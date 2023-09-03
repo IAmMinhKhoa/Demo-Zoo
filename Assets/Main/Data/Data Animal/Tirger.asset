@@ -12,10 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3fcb7094a09534794fbd59619642a9, type: 3}
   m_Name: Tirger
   m_EditorClassIdentifier: 
-  clock: 0
-  NameVn: "Con H\u1ED5"
-  NameUS: Tiger
-  Sprite: {fileID: 21300000, guid: 2678284f3b2ec044f92cdb64c9d58965, type: 3}
-  Icon: {fileID: 21300000, guid: d69118cf9e818d94d86baafff2d0a52d, type: 3}
-  Content: "\u0110\xE2y l\xE0 con h\u1ED5 r\u1EA5t \u1EA3o"
-  animalSound: {fileID: 8300000, guid: 51f0c54706b53c14c9c24bbd63bb18a6, type: 3}
+  b_Lock: 0
+  str_NameVn: "Con H\u1ED5"
+  str_NameUs: 
+  avatar: {fileID: 0}
+  icon: {fileID: 0}
+  a_AnimalSound: {fileID: 0}
+  a_NameVn: {fileID: 0}
+  a_NameUs: {fileID: 0}
+  iC_name:
+    Str_Content: 
+    A_audio: {fileID: 0}
+    L_Sprite: []
+  iC_food:
+    Str_Content: 
+    A_audio: {fileID: 0}
+    L_Sprite: []
+  iC_characteristic:
+    Str_Content: 
+    A_audio: {fileID: 0}
+    L_Sprite: []
+  iC_conservation:
+    Str_Content: 
+    A_audio: {fileID: 0}
+    L_Sprite: []
+  iC_habitat:
+    Str_Content: 
+    A_audio: {fileID: 0}
+    L_Sprite: []
