@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static LevelManager;
@@ -7,6 +8,10 @@ using static LevelManager;
 public class LevelButtonManager : MonoBehaviour
 {
     public static LevelButtonManager Instance { get; private set; }
+
+    [SerializeField] private GameObject LevelUI;
+    [SerializeField] private GameObject GanmeContent;
+
 
     public enum GameLevel
     {
@@ -27,7 +32,8 @@ public class LevelButtonManager : MonoBehaviour
         if(LevelManager.Instance.isEasyUnlocked)
         {
             gameLevel = GameLevel.Easy;
-            SceneManager.LoadScene("FlippingGame");
+            LevelUI.SetActive(false);
+            GanmeContent.SetActive(true);
         }
      }
 
@@ -36,7 +42,9 @@ public class LevelButtonManager : MonoBehaviour
         if (LevelManager.Instance.isMediumUnlocked)
         {
             gameLevel = GameLevel.Medium;
-            SceneManager.LoadScene("FlippingGame");
+            LevelUI.SetActive(false);
+            GanmeContent.SetActive(true);
+
         }
     }
 
@@ -45,8 +53,15 @@ public class LevelButtonManager : MonoBehaviour
         if (LevelManager.Instance.isHardUnlocked)
         {
             gameLevel = GameLevel.Hard;
-            SceneManager.LoadScene("FlippingGame");
+            LevelUI.SetActive(false);
+            GanmeContent.SetActive(true);
+
         }
+    }
+
+    public void closeButton() 
+    {
+        SceneManager.LoadScene("MenuMiniGame");
     }
 }
 

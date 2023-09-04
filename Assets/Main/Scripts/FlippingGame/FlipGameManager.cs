@@ -9,6 +9,9 @@ public class FlipGameManager : MonoBehaviour
 
     public event EventHandler OnStateChanged;
 
+    public event EventHandler OnGetCard;
+
+
     public event EventHandler OnPauseAction;
     private enum State
     {
@@ -57,6 +60,7 @@ public class FlipGameManager : MonoBehaviour
                 {
                     state = State.GamePlaying;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
+                    OnGetCard?.Invoke(this, EventArgs.Empty);
                     gamePLayingTimer = getGamePlayingTimerMax();
                 }
                 break;
@@ -72,8 +76,13 @@ public class FlipGameManager : MonoBehaviour
                 break;       
         }
         Debug.Log(state);
-        Debug.Log(isGamePause);
+        //Debug.Log(isGamePause);
 
+    }
+
+    public bool IsGameWaiting()
+    {
+        return state == State.WaitingToStart;
     }
 
     public bool IsGamePlaying()
@@ -89,6 +98,21 @@ public class FlipGameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return state == State.GameOver;
+    }
+
+    public bool IsGamePause()
+    {
+        return isGamePause;
+    }
+
+    public void restartGame()
+    {
+        AddCard.Instance.DestroyCardButtons();
+        waitingToStartTimer = 1f;
+        countdownToStartTimer = 3f;
+        gamePLayingTimer = 0f;
+        isGamePause = false;
+        state = State.WaitingToStart;
     }
 
     public void TogglePauseGame()

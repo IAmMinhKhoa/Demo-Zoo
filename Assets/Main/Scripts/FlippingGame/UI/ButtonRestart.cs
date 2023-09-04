@@ -8,6 +8,8 @@ public class ButtonRestart : MonoBehaviour
 {
     private Button restartButton;
 
+    [SerializeField] private GameObject panelParent;
+
     private void Start()
     {
         restartButton = GetComponent<Button>();
@@ -16,6 +18,18 @@ public class ButtonRestart : MonoBehaviour
 
     public void OnRestartButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Hide();
+        FlipGameManager.Instance.restartGame();
+        Flip_GameController.Instance.ResetArrays();
+    }
+
+    private void Show()
+    {
+        panelParent.SetActive(true);
+    }
+
+    private void Hide()
+    {
+        panelParent.SetActive(false);
     }
 }
