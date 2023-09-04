@@ -102,7 +102,6 @@ public class Flip_GameController : MonoBehaviour
     public void PickAPuzzle()
     {
         if (!FlipGameManager.Instance.IsGamePlaying()) return;
-        string name = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name;
 
         if (!firstGuess)
         {
@@ -190,22 +189,25 @@ public class Flip_GameController : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
 
-            FlipBackCard(cardButtons[firstGuessIndex]);
-            FlipBackCard(cardButtons[secondGuessIndex]);
-
-            cardButtons[firstGuessIndex].interactable = true;
-            cardButtons[secondGuessIndex].interactable = true;
-
-            Image firstImage = cardButtons[firstGuessIndex].transform.Find("Image").GetComponent<Image>();
-            Image secondImage = cardButtons[secondGuessIndex].transform.Find("Image").GetComponent<Image>();
-
-            // Kiểm tra xem các gameobject con có tồn tại hay không
-            if (firstImage != null && secondImage != null)
+            if(cardButtons.Count > 0)
             {
-                // Thiết lập hiển thị cho Image
-                firstImage.gameObject.SetActive(false);
-                secondImage.gameObject.SetActive(false);
+                FlipBackCard(cardButtons[firstGuessIndex]);
+                FlipBackCard(cardButtons[secondGuessIndex]);
+                cardButtons[firstGuessIndex].interactable = true;
+                cardButtons[secondGuessIndex].interactable = true;
+
+                Image firstImage = cardButtons[firstGuessIndex].transform.Find("Image").GetComponent<Image>();
+                Image secondImage = cardButtons[secondGuessIndex].transform.Find("Image").GetComponent<Image>();
+
+                // Kiểm tra xem các gameobject con có tồn tại hay không
+                if (firstImage != null && secondImage != null)
+                {
+                    // Thiết lập hiển thị cho Image
+                    firstImage.gameObject.SetActive(false);
+                    secondImage.gameObject.SetActive(false);
+                }
             }
+
         }
         //yield return new WaitForSeconds(1f);
 
