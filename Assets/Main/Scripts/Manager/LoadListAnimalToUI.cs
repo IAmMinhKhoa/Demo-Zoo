@@ -55,9 +55,9 @@ public class LoadListAnimalToUI : MonoBehaviour
                 foreach  (SO_Animal ListDataAnimal in ListZone.DATA_Animals)
                 {
                     checkFindZone = true;
-                    ComponentCardAnimalInBook componentCardAnimalInBook = prefabCardAnimal.GetComponent<ComponentCardAnimalInBook>();
+                    GameObject instance_CardAnimal = Instantiate(prefabCardAnimal, GO_ListAnimal.transform);
+                    ComponentCardAnimalInBook componentCardAnimalInBook = instance_CardAnimal.GetComponent<ComponentCardAnimalInBook>();
                     componentCardAnimalInBook.LoadDataToCard(ListDataAnimal);
-                    componentCardAnimalInBook.InstanceCardAnimal(GO_ListAnimal);
                 }
             }
         }

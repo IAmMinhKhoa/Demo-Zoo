@@ -63,18 +63,24 @@ public class LoadDatatoTableInforAnimal : MonoBehaviour
         tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Food.Str_Content);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_food);
+         LoadImageFromSO_Animal(SO_animal.IC_Food);
+
     }
     protected void EvenButtonConservation()
     {
         tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_conservation);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Conservation.Str_Content);
+
+        LoadImageFromSO_Animal(SO_animal.IC_Conservation);
     }
     protected void EvenButtonCharacteristic()
     {
         tableInforAnimal.SetActiveBottom(true);
         tableInforAnimal.PlayAudio(tableInforAnimal.GO_Speaker_characteristic);
         tableInforAnimal.SetTextBottom(SO_animal.IC_Characteristic.Str_Content);
+
+        LoadImageFromSO_Animal(SO_animal.IC_Characteristic);
     }
 
     protected void LoadImageFromSO_Animal(InformationCluster IC)
