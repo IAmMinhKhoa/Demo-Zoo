@@ -50,10 +50,6 @@ public class Flip_GameController : MonoBehaviour
         Debug.Log(currentLevel + " " + gameLevel);
     }
 
-    private void Update()
-    {
-         
-    }
 
     private void FlipGameManager_OnGetCard(object sender, System.EventArgs e)
     {   
