@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlipGameManager : MonoBehaviour
+public class FlipGameManager : MiniGameManager
 {
     public static FlipGameManager Instance { get; private set;  }
 
@@ -13,26 +13,10 @@ public class FlipGameManager : MonoBehaviour
 
 
     public event EventHandler OnPauseAction;
-    private enum State
-    {
-        WaitingToStart,
-        CountdownToStart,
-        GamePlaying,
-        GameOver,
-    }
 
     [SerializeField] private float easyLevelMaxTime = 5f;
     [SerializeField] private float mediumLevelMaxTime = 30f;
     [SerializeField] private float hardLevelMaxTime = 40f;
-
-    private State state;
-    private float waitingToStartTimer = 1f;
-    private float countdownToStartTimer = 3f;
-    private float gamePLayingTimer;
-    private float gamePLayingTimerMax;
-    private bool isGamePause = false;
-
-
 
     private void Awake()
     {
@@ -41,6 +25,13 @@ public class FlipGameManager : MonoBehaviour
         // Khởi tạo các giá trị khác   
         state = State.WaitingToStart;
     }
+
+    //private State state;
+    //private float waitingToStartTimer = 1f;
+    //private float countdownToStartTimer = 3f;
+    //private float gamePLayingTimer;
+    //private float gamePLayingTimerMax;
+    //private bool isGamePause = false;
 
     private void Update()
     {
@@ -80,73 +71,65 @@ public class FlipGameManager : MonoBehaviour
 
     }
 
-    public bool IsGameWaiting()
-    {
-        return state == State.WaitingToStart;
-    }
+    //public bool IsGameWaiting()
+    //{
+    //    return state == State.WaitingToStart;
+    //}
 
-    public bool IsGamePlaying()
-    {
-        return state == State.GamePlaying;
-    }
+    //public bool IsGamePlaying()
+    //{
+    //    return state == State.GamePlaying;
+    //}
 
-    public bool IsCountdownToStartActive()
-    {
-        return state == State.CountdownToStart;
-    }
+    //public bool IsCountdownToStartActive()
+    //{
+    //    return state == State.CountdownToStart;
+    //}
 
-    public bool IsGameOver()
-    {
-        return state == State.GameOver;
-    }
+    //public bool IsGameOver()
+    //{
+    //    return state == State.GameOver;
+    //}
 
-    public bool IsGamePause()
-    {
-        return isGamePause;
-    }
+    //public bool IsGamePause()
+    //{
+    //    return isGamePause;
+    //}
 
-    public void restartGame()
+    public override void restartGame()
     {
         AddCard.Instance.DestroyCardButtons();
-        waitingToStartTimer = 1f;
-        countdownToStartTimer = 3f;
-        gamePLayingTimer = 0f;
-        isGamePause = false;
-        state = State.WaitingToStart;
+        base.restartGame();
     }
 
-    public void TogglePauseGame()
+    public override void TogglePauseGame()
     {
-        isGamePause = !isGamePause;
+        base.TogglePauseGame();
         if (isGamePause)
         {
-            Time.timeScale = 0f;
             OnPauseAction?.Invoke(this, EventArgs.Empty);
-        } else
-        {
-            Time.timeScale = 1f;
         }
     }
 
-    public void tinmeScaleOn()
-    {
-        Time.timeScale = 0f;
-    }
+    //public void tinmeScaleOn()
+    //{
+    //    Time.timeScale = 0f;
+    //}
 
-    public void tinmeScaleOff()
-    {
-        Time.timeScale = 1f;
-    }
+    //public void tinmeScaleOff()
+    //{
+    //    Time.timeScale = 1f;
+    //}
 
-    public float GetCountdownToStartTimer()
-    {
-        return countdownToStartTimer;
-    }
+    //public float GetCountdownToStartTimer()
+    //{
+    //    return countdownToStartTimer;
+    //}
 
-    public float GetGamePlayingTimerNormaliezed()
-    {
-        return 1 - (gamePLayingTimer / gamePLayingTimerMax);
-    }
+    //public float GetGamePlayingTimerNormaliezed()
+    //{
+    //    return 1 - (gamePLayingTimer / gamePLayingTimerMax);
+    //}
 
     private float getGamePlayingTimerMax()
     {
