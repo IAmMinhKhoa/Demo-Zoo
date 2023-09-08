@@ -13,7 +13,7 @@ public class GamePauseUI : MonoBehaviour
     }
     private void Start()
     {
-        FlipGameManager.Instance.OnPauseAction += FlipGameManager_OnPauseAction;
+        MiniGameManager.Instance.OnPauseAction += FlipGameManager_OnPauseAction;
         Hide();
     }
 

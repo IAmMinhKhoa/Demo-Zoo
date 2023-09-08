@@ -30,12 +30,12 @@ public class AddCard : MonoBehaviour
 
     private void Start()
     {
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        MiniGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (FlipGameManager.Instance.IsGamePlaying())
+        if (MiniGameManager.Instance.IsGamePlaying())
         {
             LevelButtonManager levelButtonManager = LevelButtonManager.Instance;
             int gameLevel = (int)levelButtonManager.gameLevel;

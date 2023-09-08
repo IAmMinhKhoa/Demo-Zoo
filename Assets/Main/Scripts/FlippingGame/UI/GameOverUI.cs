@@ -18,16 +18,17 @@ public class GameOverUI : MonoBehaviour
     }
     private void Start()
     {
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        MiniGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
         Hide();
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (FlipGameManager.Instance.IsGameOver() && Flip_GameController.Instance.CheckIfTheGameIsFinished() == false && !isGameVictoryShown)
+        if (MiniGameManager.Instance.IsGameOver() && Flip_GameController.Instance.CheckIfTheGameIsFinished() == false && !isGameVictoryShown)
         {
             Show();
-            resultText.text = Flip_GameController.Instance.GetCountCorrectGuesses().ToString();
+            //resultText.text = Flip_GameController.Instance.GetCountCorrectGuesses().ToString();
+            resultText.text = MiniGameManager.Instance.GetScore().ToString();
         }
         else
         {

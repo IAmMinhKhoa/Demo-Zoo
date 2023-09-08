@@ -9,7 +9,8 @@ public class Flip_GameController : MonoBehaviour
 {
     public static Flip_GameController Instance { get; private set; }
 
-    public event EventHandler OnWinChanged;
+
+   // public event EventHandler OnWinChanged;
 
 
     [SerializeField]
@@ -23,7 +24,7 @@ public class Flip_GameController : MonoBehaviour
 
     private bool firstGuess, secondGuess;
 
-    private int countGuesses;
+   
     private int countCorrectGuesses = 0;
     private int gameGuesses;
 
@@ -44,15 +45,17 @@ public class Flip_GameController : MonoBehaviour
 
     private void Start()
     {
-        FlipGameManager.Instance.OnGetCard += FlipGameManager_OnGetCard;
+        MiniGameManager.Instance.StartGameContent += FlipGameManager_StartGameContent;
         currentLevel = (int)LevelManager.Instance.currentLevel;
         gameLevel = (int)LevelButtonManager.Instance.gameLevel;
         Debug.Log(currentLevel + " " + gameLevel);
+                                
+                                
     }
 
 
-    private void FlipGameManager_OnGetCard(object sender, System.EventArgs e)
-    {   
+    private void FlipGameManager_StartGameContent(object sender, System.EventArgs e)
+    {
         GetCardButtons();
         AddCardIcon();
         Shuffle(cardIcon);
@@ -97,7 +100,7 @@ public class Flip_GameController : MonoBehaviour
 
     public void PickAPuzzle()
     {
-        if (!FlipGameManager.Instance.IsGamePlaying()) return;
+        if (!MiniGameManager.Instance.IsGamePlaying()) return;
 
         if (!firstGuess)
         {
@@ -139,7 +142,7 @@ public class Flip_GameController : MonoBehaviour
                 image.sprite = cardIcon[secondGuessIndex];
             }
 
-            countGuesses++;
+          
 
             StartCoroutine(CheckIfTheCardMatch());
 
@@ -172,9 +175,12 @@ public class Flip_GameController : MonoBehaviour
             }
 
             countCorrectGuesses++;
+            MiniGameManager.Instance.SetScore(countCorrectGuesses);
             if (CheckIfTheGameIsFinished() == true)
             {
-                OnWinChanged?.Invoke(this, EventArgs.Empty);
+                //OnWinChanged?.Invoke(this, EventArgs.Empty);
+                MiniGameManager.Instance.RaiseChangeWinEvent(); 
+                
                 if (currentLevel == gameLevel)
                 {                 
                     LevelManager.Instance.OnGameVictory();
@@ -209,6 +215,8 @@ public class Flip_GameController : MonoBehaviour
 
         firstGuess = secondGuess = false;
     }
+
+   
 
     public bool CheckIfTheGameIsFinished()
     {
@@ -281,13 +289,14 @@ public class Flip_GameController : MonoBehaviour
 
     public void ResetArrays()
     {
+        AddCard.Instance.DestroyCardButtons();
+        MiniGameManager.Instance.restartGame();
+
         cardButtons.Clear();
         cardIcon.Clear();
         countCorrectGuesses = 0;
+        MiniGameManager.Instance.SetScore(0);
     }
 
-    public static implicit operator Flip_GameController(AddCard v)
-    {
-        throw new NotImplementedException();
-    }
+  
 }

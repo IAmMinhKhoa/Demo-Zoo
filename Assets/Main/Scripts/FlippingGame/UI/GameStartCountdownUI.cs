@@ -10,12 +10,12 @@ public class GameStartCountdownUI : MonoBehaviour
 
     private void Start()
     {
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        MiniGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (FlipGameManager.Instance.IsCountdownToStartActive())
+        if (MiniGameManager.Instance.IsCountdownToStartActive())
         {
             Show();   
         } else
@@ -26,7 +26,7 @@ public class GameStartCountdownUI : MonoBehaviour
 
     private void Update()
     {
-        countdownText.text = Mathf.Ceil(FlipGameManager.Instance.GetCountdownToStartTimer()).ToString();
+        countdownText.text = Mathf.Ceil(MiniGameManager.Instance.GetCountdownToStartTimer()).ToString();
     }
 
 

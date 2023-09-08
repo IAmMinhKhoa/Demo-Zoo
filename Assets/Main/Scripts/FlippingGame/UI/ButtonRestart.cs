@@ -19,7 +19,7 @@ public class ButtonRestart : MonoBehaviour
     public void OnRestartButtonClicked()
     {
         Hide();
-        FlipGameManager.Instance.restartGame();
+
         Flip_GameController.Instance.ResetArrays();
     }
 

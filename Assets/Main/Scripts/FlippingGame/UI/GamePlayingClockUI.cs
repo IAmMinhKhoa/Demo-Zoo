@@ -11,17 +11,17 @@ public class GamePlayingClockUI : MonoBehaviour
     private void Start()
     {
         Hide();
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        MiniGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
     }
 
     private void Update()
     {
-        timerImage.fillAmount = FlipGameManager.Instance.GetGamePlayingTimerNormaliezed();
+        timerImage.fillAmount = MiniGameManager.Instance.GetGamePlayingTimerNormaliezed();
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (FlipGameManager.Instance.IsGamePlaying())
+        if (MiniGameManager.Instance.IsGamePlaying())
         {
             Show();
         }

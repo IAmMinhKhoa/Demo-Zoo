@@ -11,17 +11,18 @@ public class GamePointUI : MonoBehaviour
     private void Start()
     {
         Hide();
-        FlipGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
+        MiniGameManager.Instance.OnStateChanged += FlipGameManager_OnStateChanged;
     }
 
     private void Update()
     {
-        pointText.text = Flip_GameController.Instance.GetCountCorrectGuesses().ToString();
+        //pointText.text = Flip_GameController.Instance.GetCountCorrectGuesses().ToString();
+        pointText.text = MiniGameManager.Instance.GetScore().ToString();
     }
 
     private void FlipGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (FlipGameManager.Instance.IsGamePlaying())
+        if (MiniGameManager.Instance.IsGamePlaying())
         {
             Show();
         }

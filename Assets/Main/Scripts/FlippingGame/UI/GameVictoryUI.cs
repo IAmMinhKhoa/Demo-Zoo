@@ -13,15 +13,18 @@ public class GameVictoryUI : MonoBehaviour
     }
     private void Start()
     {
-        Flip_GameController.Instance.OnWinChanged += FlipGameController_OnWinChanged;
+        // Flip_GameController.Instance.OnWinChanged += FlipGameController_OnWinChanged;
+        MiniGameManager.Instance.OnWinChanged += Instance_OnWinChanged;
         Hide();
     }
 
-    private void FlipGameController_OnWinChanged(object sender, System.EventArgs e)
+    private void Instance_OnWinChanged(object sender, System.EventArgs e)
     {
         Show();
         GameOverUI.Instance.SetGameVictoryShown(true);
     }
+
+    
 
     private void Show()
     {
